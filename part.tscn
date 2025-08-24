@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://bdjobqiabtvk5"]
+
+[node name="part" type="Marker2D"]
+
+[node name="part" type="ColorRect" parent="."]
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+
+[node name="groundCheck" type="RayCast2D" parent="."]
+target_position = Vector2(0, 40)
+hit_from_inside = true

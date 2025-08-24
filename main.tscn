@@ -1,0 +1,146 @@
+[gd_scene load_steps=10 format=4 uid="uid://bltteifflmcbh"]
+
+[ext_resource type="Script" uid="uid://xxp6t33mjesg" path="res://camera.gd" id="1_0xm2m"]
+[ext_resource type="Script" uid="uid://b1llmuumg7okq" path="res://snake.gd" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://bdjobqiabtvk5" path="res://part.tscn" id="2_lquwl"]
+[ext_resource type="Texture2D" uid="uid://cygh6h30ppd6x" path="res://testSprite.png" id="3_h2yge"]
+[ext_resource type="Script" uid="uid://daslmfr6wvx8v" path="res://fallingBlock.gd" id="4_1bvp3"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_h2yge"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1bvp3"]
+texture = ExtResource("3_h2yge")
+texture_region_size = Vector2i(40, 40)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-20, -20, 20, -20, 20, 20, -20, 20)
+
+[sub_resource type="TileSet" id="TileSet_lquwl"]
+tile_size = Vector2i(40, 40)
+physics_layer_0/collision_layer = 1
+physics_layer_0/physics_material = SubResource("PhysicsMaterial_h2yge")
+sources/1 = SubResource("TileSetAtlasSource_1bvp3")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lquwl"]
+size = Vector2(40, 40)
+
+[node name="main" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(614, 399)
+script = ExtResource("1_0xm2m")
+
+[node name="body" type="Node2D" parent="."]
+position = Vector2(497, 288)
+
+[node name="part" parent="body" instance=ExtResource("2_lquwl")]
+position = Vector2(-117, 132)
+
+[node name="part2" type="Marker2D" parent="body"]
+position = Vector2(-157, 132)
+
+[node name="part" type="ColorRect" parent="body/part2"]
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+
+[node name="groundCheck" type="RayCast2D" parent="body/part2"]
+target_position = Vector2(0, 40)
+hit_from_inside = true
+
+[node name="part3" type="Marker2D" parent="body"]
+position = Vector2(-197, 132)
+
+[node name="part" type="ColorRect" parent="body/part3"]
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+
+[node name="groundCheck" type="RayCast2D" parent="body/part3"]
+target_position = Vector2(0, 40)
+hit_from_inside = true
+
+[node name="part4" type="Marker2D" parent="body"]
+position = Vector2(-237, 132)
+
+[node name="part" type="ColorRect" parent="body/part4"]
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+
+[node name="groundCheck" type="RayCast2D" parent="body/part4"]
+target_position = Vector2(0, 40)
+hit_from_inside = true
+
+[node name="part5" type="Marker2D" parent="body"]
+position = Vector2(-277, 132)
+
+[node name="part" type="ColorRect" parent="body/part5"]
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+
+[node name="groundCheck" type="RayCast2D" parent="body/part5"]
+target_position = Vector2(0, 40)
+hit_from_inside = true
+
+[node name="Snake" type="CharacterBody2D" parent="."]
+position = Vector2(420, 420)
+script = ExtResource("1_ig7tw")
+
+[node name="Head" type="ColorRect" parent="Snake"]
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+
+[node name="moveCheck" type="RayCast2D" parent="Snake"]
+
+[node name="groundCheck" type="RayCast2D" parent="Snake"]
+target_position = Vector2(0, 40)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+position = Vector2(2, -40)
+tile_map_data = PackedByteArray("AAAFAA0AAQAAAAAAAAAGAA0AAQAAAAAAAAAHAA0AAQAAAAAAAAAIAA0AAQAAAAAAAAAJAA0AAQAAAAAAAAAKAA0AAQAAAAAAAAALAA0AAQAAAAAAAAAMAA0AAQAAAAAAAAANAA0AAQAAAAAAAAAOAA0AAQAAAAAAAAAPAA0AAQAAAAAAAAAQAAsAAQAAAAAAAAASAAsAAQAAAAAAAAAQAA0AAQAAAAAAAAASAAoAAQAAAAAAAAASAAkAAQAAAAAAAAAQAAoAAQAAAAAAAAAQAAcAAQAAAAAAAAATAAkAAQAAAAAAAAAUAAkAAQAAAAAAAAAZAA0AAQAAAAAAAAAaAA0AAQAAAAAAAAAbAA0AAQAAAAAAAAAcAA0AAQAAAAAAAAAdAA0AAQAAAAAAAAAPAAgAAQAAAAAAAAAPAAkAAQAAAAAAAAA=")
+tile_set = SubResource("TileSet_lquwl")
+collision_visibility_mode = 1
+
+[node name="Falling Block" type="StaticBody2D" parent="." groups=["Fall"]]
+position = Vector2(680, 480)
+script = ExtResource("4_1bvp3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Falling Block"]
+position = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_lquwl")
+
+[node name="ColorRect" type="ColorRect" parent="Falling Block"]
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.312785, 0.161857, 9.62615e-08, 1)
+
+[node name="Ladder" type="StaticBody2D" parent="." groups=["Ladder"]]
+position = Vector2(520, 360)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ladder" groups=["Ladder"]]
+position = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_lquwl")
+
+[node name="ColorRect" type="ColorRect" parent="Ladder"]
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.313726, 0.686275, 0, 1)
+
+[node name="cookie" type="StaticBody2D" parent="." groups=["cookie"]]
+position = Vector2(520, 440)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="cookie" groups=["Ladder"]]
+position = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_lquwl")
+
+[node name="ColorRect" type="ColorRect" parent="cookie"]
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.857194, 0.440046, 0.450446, 1)
