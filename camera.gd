@@ -13,4 +13,4 @@ func _process(delta: float) -> void:
 	for i in $"../body".get_children():
 		sum += i.global_position
 	var average = sum/($"../body".get_child_count()+1)
-	position = lerp(position,average,0.1)
+	position = lerp(position,average,0.02)

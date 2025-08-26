@@ -101,13 +101,14 @@ script = ExtResource("1_0xm2m")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 scale = Vector2(8, 8)
-tile_map_data = PackedByteArray("AAAFAA0AAAAAAAUAAAAGAA0AAAABAAUAAAAHAA0AAAABAAUAAAAIAA0AAAABAAUAAAAJAA0AAAABAAUAAAAKAA0AAAABAAUAAAALAA0AAAABAAUAAAAMAA0AAAACAAQAAAANAA0AAAABAAUAAAAOAA0AAAABAAUAAAAPAA0AAAABAAUAAAAQAAsAAAADAAQAAAASAAsAAAABAAQAAAAQAA0AAAADAAUAAAASAAoAAAABAAMAAAASAAkAAAABAAAAAAAQAAoAAAADAAAAAAAQAAcAAAADAAUAAAATAAkAAAABAAUAAAAUAAkAAAACAAUAAAAZAA0AAQAAAAAAAAAaAA0AAQAAAAAAAAAbAA0AAQAAAAAAAAAcAA0AAQAAAAAAAAAdAA0AAQAAAAAAAAAPAAgAAAACAAAAAAAPAAkAAAABAAQAAAAMAAwAAAACAAMAAAAMAAsAAAABAAIAAAAMAAoAAAADAAIAAAAMAAkAAAACAAEAAAAMAAgAAAACAAAAAAALAAkAAAAAAAMAAAALAAsAAAAAAAQAAAALAAgAAAAAAAAAAAANAAoAAAAEAAIAAAANAAkAAAAEAAEAAAANAAwAAAAEAAQAAAANAAgAAAAEAAAAAAAPAAoAAAAAAAIAAAARAAoAAAAEAAAAAAAOAAgAAAAFAAEAAAAQAAkAAAAEAAEAAAAOAAkAAAAAAAEAAAARAAcAAAAGAAEAAAARAAkAAAAFAAIAAAARAAsAAAAFAAEAAAATAAoAAAAGAAIAAAATAAsAAAAGAAAAAAAVAAkAAAAEAAAAAAAEAA0AAAAAAAAAAAARAA0AAAAEAAAAAAA=")
+tile_map_data = PackedByteArray("AAAFAA0AAAAAAAUAAAAGAA0AAAABAAUAAAAHAA0AAAABAAUAAAAIAA0AAAABAAUAAAAJAA0AAAABAAUAAAAKAA0AAAABAAUAAAALAA0AAAABAAUAAAAMAA0AAAACAAQAAAANAA0AAAABAAUAAAAOAA0AAAABAAUAAAAPAA0AAAABAAUAAAAQAA0AAAADAAUAAAAZAA0AAQAAAAAAAAAaAA0AAQAAAAAAAAAbAA0AAQAAAAAAAAAcAA0AAQAAAAAAAAAdAA0AAQAAAAAAAAAEAA0AAAAAAAAAAAARAA0AAAAEAAAAAAA=")
 tile_set = SubResource("TileSet_lquwl")
 rendering_quadrant_size = 5
 
 [node name="Falling Block" type="StaticBody2D" parent="." groups=["Fall"]]
 position = Vector2(680, 480)
 script = ExtResource("4_1bvp3")
+startStrength = 800
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Falling Block"]
 position = Vector2(20, 20)
@@ -121,7 +122,7 @@ hframes = 4
 vframes = 3
 
 [node name="Ladder" type="StaticBody2D" parent="." groups=["Ladder"]]
-position = Vector2(360, 360)
+position = Vector2(440, 480)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ladder" groups=["Ladder"]]
 position = Vector2(20, 20)
@@ -161,79 +162,19 @@ position = Vector2(497, 288)
 [node name="part" parent="body" instance=ExtResource("2_lquwl")]
 position = Vector2(-77, 132)
 
-[node name="part2" type="Marker2D" parent="body"]
-position = Vector2(-117, 132)
-
-[node name="Sprite2D" type="Sprite2D" parent="body/part2"]
-scale = Vector2(8, 8)
-texture = ExtResource("9_kek77")
-hframes = 4
-vframes = 8
-frame = 14
-
-[node name="groundCheck" type="RayCast2D" parent="body/part2"]
-target_position = Vector2(0, 40)
-hit_from_inside = true
-
-[node name="part3" type="Marker2D" parent="body"]
-position = Vector2(-157, 132)
-
-[node name="Sprite2D" type="Sprite2D" parent="body/part3"]
-scale = Vector2(8, 8)
-texture = ExtResource("9_kek77")
-hframes = 4
-vframes = 8
-frame = 13
-
-[node name="groundCheck" type="RayCast2D" parent="body/part3"]
-target_position = Vector2(0, 40)
-hit_from_inside = true
-
-[node name="part4" type="Marker2D" parent="body"]
-position = Vector2(-197, 132)
-
-[node name="Sprite2D" type="Sprite2D" parent="body/part4"]
-scale = Vector2(8, 8)
-texture = ExtResource("9_kek77")
-hframes = 4
-vframes = 8
-frame = 13
-
-[node name="groundCheck" type="RayCast2D" parent="body/part4"]
-target_position = Vector2(0, 40)
-hit_from_inside = true
-
-[node name="part5" type="Marker2D" parent="body"]
-position = Vector2(-237, 132)
-
-[node name="Sprite2D" type="Sprite2D" parent="body/part5"]
-rotation = -3.14159
-scale = Vector2(8, 8)
-texture = ExtResource("9_kek77")
-hframes = 4
-vframes = 8
-frame = 15
-
-[node name="groundCheck" type="RayCast2D" parent="body/part5"]
-target_position = Vector2(0, 40)
-hit_from_inside = true
-
 [node name="Snake" type="CharacterBody2D" parent="."]
-position = Vector2(420, 420)
+position = Vector2(460, 420)
 script = ExtResource("1_ig7tw")
 
 [node name="Sprite2D" type="Sprite2D" parent="Snake"]
 position = Vector2(3.05176e-05, 0)
-rotation = 1.57079
+rotation = 1.5708
 scale = Vector2(8, 8)
 texture = ExtResource("9_kek77")
 hframes = 4
 vframes = 8
 
-[node name="Sprite2D2" type="Sprite2D" parent="Snake"]
-position = Vector2(3.05176e-05, 0)
-rotation = 1.57079
-scale = Vector2(8, 8)
+[node name="Sprite2D2" type="Sprite2D" parent="Snake/Sprite2D"]
 texture = ExtResource("9_kek77")
 hframes = 4
 vframes = 8
@@ -242,4 +183,4 @@ frame = 3
 [node name="moveCheck" type="RayCast2D" parent="Snake"]
 
 [node name="groundCheck" type="RayCast2D" parent="Snake"]
-target_position = Vector2(0, 40)
+target_position = Vector2(0, 21)

@@ -12,5 +12,5 @@ vframes = 8
 frame = 14
 
 [node name="groundCheck" type="RayCast2D" parent="."]
-target_position = Vector2(0, 40)
+target_position = Vector2(0, 21)
 hit_from_inside = true
