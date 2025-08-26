@@ -1,12 +1,15 @@
-[gd_scene format=3 uid="uid://bdjobqiabtvk5"]
+[gd_scene load_steps=2 format=3 uid="uid://bdjobqiabtvk5"]
+
+[ext_resource type="Texture2D" uid="uid://g741iiv65g2" path="res://Snake.png" id="1_ut4fy"]
 
 [node name="part" type="Marker2D"]
 
-[node name="part" type="ColorRect" parent="."]
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(8, 8)
+texture = ExtResource("1_ut4fy")
+hframes = 4
+vframes = 8
+frame = 14
 
 [node name="groundCheck" type="RayCast2D" parent="."]
 target_position = Vector2(0, 40)

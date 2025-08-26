@@ -1,10 +1,14 @@
-[gd_scene load_steps=10 format=4 uid="uid://bltteifflmcbh"]
+[gd_scene load_steps=14 format=4 uid="uid://bltteifflmcbh"]
 
 [ext_resource type="Script" uid="uid://xxp6t33mjesg" path="res://camera.gd" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://b1llmuumg7okq" path="res://snake.gd" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://bdjobqiabtvk5" path="res://part.tscn" id="2_lquwl"]
 [ext_resource type="Script" uid="uid://daslmfr6wvx8v" path="res://fallingBlock.gd" id="4_1bvp3"]
+[ext_resource type="Texture2D" uid="uid://quytgt0ewv4v" path="res://Cookies.png" id="4_7mycd"]
+[ext_resource type="Texture2D" uid="uid://cmb4gumgdi4vj" path="res://BreakableBlock.png" id="4_272bh"]
 [ext_resource type="Texture2D" uid="uid://bgjy7jw7vesoq" path="res://TileMap.png" id="4_lquwl"]
+[ext_resource type="Texture2D" uid="uid://dsnfjsbrw6uc" path="res://Scaffolding.png" id="5_5vw27"]
+[ext_resource type="Texture2D" uid="uid://g741iiv65g2" path="res://Snake.png" id="9_kek77"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_h2yge"]
 
@@ -97,7 +101,7 @@ script = ExtResource("1_0xm2m")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 scale = Vector2(8, 8)
-tile_map_data = PackedByteArray("AAAFAA0AAAAAAAUAAAAGAA0AAAABAAUAAAAHAA0AAAABAAUAAAAIAA0AAAABAAUAAAAJAA0AAAABAAUAAAAKAA0AAAABAAUAAAALAA0AAAABAAUAAAAMAA0AAAACAAQAAAANAA0AAAABAAUAAAAOAA0AAAABAAUAAAAPAA0AAAABAAUAAAAQAAsAAAADAAQAAAASAAsAAAABAAQAAAAQAA0AAAADAAUAAAASAAoAAAABAAMAAAASAAkAAAABAAAAAAAQAAoAAAADAAAAAAAQAAcAAAADAAUAAAATAAkAAAABAAUAAAAUAAkAAAACAAUAAAAZAA0AAQAAAAAAAAAaAA0AAQAAAAAAAAAbAA0AAQAAAAAAAAAcAA0AAQAAAAAAAAAdAA0AAQAAAAAAAAAPAAgAAAACAAAAAAAPAAkAAAABAAQAAAAMAAwAAAACAAMAAAAMAAsAAAABAAIAAAAMAAoAAAADAAIAAAAMAAkAAAACAAIAAAAMAAgAAAACAAEAAAAMAAcAAAACAAAAAAALAAkAAAAAAAMAAAALAAoAAAAAAAMAAAALAAsAAAAAAAQAAAALAAcAAAAAAAAAAAALAAgAAAAAAAEAAAALAAwAAAAAAAQAAAANAAoAAAAEAAIAAAANAAkAAAAEAAEAAAANAAwAAAAEAAQAAAANAAcAAAAEAAAAAAANAAgAAAAEAAEAAAAPAAoAAAAAAAIAAAAPAAsAAAAAAAEAAAARAAoAAAAEAAAAAAAOAAgAAAAFAAEAAAAQAAgAAAAGAAIAAAAQAAkAAAAEAAEAAAAOAAkAAAAAAAEAAAAPAAcAAAAFAAEAAAARAAcAAAAGAAEAAAARAAkAAAAFAAIAAAARAAsAAAAFAAEAAAATAAoAAAAGAAIAAAATAAsAAAAGAAAAAAAVAAkAAAAEAAAAAAAEAA0AAAAAAAAAAAARAA0AAAAEAAAAAAA=")
+tile_map_data = PackedByteArray("AAAFAA0AAAAAAAUAAAAGAA0AAAABAAUAAAAHAA0AAAABAAUAAAAIAA0AAAABAAUAAAAJAA0AAAABAAUAAAAKAA0AAAABAAUAAAALAA0AAAABAAUAAAAMAA0AAAACAAQAAAANAA0AAAABAAUAAAAOAA0AAAABAAUAAAAPAA0AAAABAAUAAAAQAAsAAAADAAQAAAASAAsAAAABAAQAAAAQAA0AAAADAAUAAAASAAoAAAABAAMAAAASAAkAAAABAAAAAAAQAAoAAAADAAAAAAAQAAcAAAADAAUAAAATAAkAAAABAAUAAAAUAAkAAAACAAUAAAAZAA0AAQAAAAAAAAAaAA0AAQAAAAAAAAAbAA0AAQAAAAAAAAAcAA0AAQAAAAAAAAAdAA0AAQAAAAAAAAAPAAgAAAACAAAAAAAPAAkAAAABAAQAAAAMAAwAAAACAAMAAAAMAAsAAAABAAIAAAAMAAoAAAADAAIAAAAMAAkAAAACAAEAAAAMAAgAAAACAAAAAAALAAkAAAAAAAMAAAALAAsAAAAAAAQAAAALAAgAAAAAAAAAAAANAAoAAAAEAAIAAAANAAkAAAAEAAEAAAANAAwAAAAEAAQAAAANAAgAAAAEAAAAAAAPAAoAAAAAAAIAAAARAAoAAAAEAAAAAAAOAAgAAAAFAAEAAAAQAAkAAAAEAAEAAAAOAAkAAAAAAAEAAAARAAcAAAAGAAEAAAARAAkAAAAFAAIAAAARAAsAAAAFAAEAAAATAAoAAAAGAAIAAAATAAsAAAAGAAAAAAAVAAkAAAAEAAAAAAAEAA0AAAAAAAAAAAARAA0AAAAEAAAAAAA=")
 tile_set = SubResource("TileSet_lquwl")
 rendering_quadrant_size = 5
 
@@ -109,22 +113,26 @@ script = ExtResource("4_1bvp3")
 position = Vector2(20, 20)
 shape = SubResource("RectangleShape2D_lquwl")
 
-[node name="ColorRect" type="ColorRect" parent="Falling Block"]
-offset_right = 40.0
-offset_bottom = 40.0
-color = Color(0.312785, 0.161857, 9.62615e-08, 1)
+[node name="Sprite2D" type="Sprite2D" parent="Falling Block"]
+position = Vector2(20, 20)
+scale = Vector2(8, 8)
+texture = ExtResource("4_272bh")
+hframes = 4
+vframes = 3
 
 [node name="Ladder" type="StaticBody2D" parent="." groups=["Ladder"]]
-position = Vector2(520, 360)
+position = Vector2(360, 360)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ladder" groups=["Ladder"]]
 position = Vector2(20, 20)
 shape = SubResource("RectangleShape2D_lquwl")
 
-[node name="ColorRect" type="ColorRect" parent="Ladder"]
-offset_right = 40.0
-offset_bottom = 40.0
-color = Color(0.313726, 0.686275, 0, 1)
+[node name="Sprite2D" type="Sprite2D" parent="Ladder"]
+position = Vector2(20, 20)
+scale = Vector2(8, 8)
+texture = ExtResource("5_5vw27")
+hframes = 4
+frame = 3
 
 [node name="cookie" type="StaticBody2D" parent="." groups=["cookie"]]
 position = Vector2(520, 440)
@@ -133,64 +141,78 @@ position = Vector2(520, 440)
 position = Vector2(20, 20)
 shape = SubResource("RectangleShape2D_lquwl")
 
-[node name="ColorRect" type="ColorRect" parent="cookie"]
-offset_right = 40.0
-offset_bottom = 40.0
-color = Color(0.857194, 0.440046, 0.450446, 1)
+[node name="Sprite2D2" type="Sprite2D" parent="cookie"]
+position = Vector2(180, 180)
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("4_7mycd")
+hframes = 3
+frame = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="cookie"]
+position = Vector2(20, 20)
+scale = Vector2(8, 8)
+texture = ExtResource("4_7mycd")
+hframes = 3
+frame = 2
 
 [node name="body" type="Node2D" parent="."]
 position = Vector2(497, 288)
 
 [node name="part" parent="body" instance=ExtResource("2_lquwl")]
-position = Vector2(-117, 132)
+position = Vector2(-77, 132)
 
 [node name="part2" type="Marker2D" parent="body"]
-position = Vector2(-157, 132)
+position = Vector2(-117, 132)
 
-[node name="part" type="ColorRect" parent="body/part2"]
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+[node name="Sprite2D" type="Sprite2D" parent="body/part2"]
+scale = Vector2(8, 8)
+texture = ExtResource("9_kek77")
+hframes = 4
+vframes = 8
+frame = 14
 
 [node name="groundCheck" type="RayCast2D" parent="body/part2"]
 target_position = Vector2(0, 40)
 hit_from_inside = true
 
 [node name="part3" type="Marker2D" parent="body"]
-position = Vector2(-197, 132)
+position = Vector2(-157, 132)
 
-[node name="part" type="ColorRect" parent="body/part3"]
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+[node name="Sprite2D" type="Sprite2D" parent="body/part3"]
+scale = Vector2(8, 8)
+texture = ExtResource("9_kek77")
+hframes = 4
+vframes = 8
+frame = 13
 
 [node name="groundCheck" type="RayCast2D" parent="body/part3"]
 target_position = Vector2(0, 40)
 hit_from_inside = true
 
 [node name="part4" type="Marker2D" parent="body"]
-position = Vector2(-237, 132)
+position = Vector2(-197, 132)
 
-[node name="part" type="ColorRect" parent="body/part4"]
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+[node name="Sprite2D" type="Sprite2D" parent="body/part4"]
+scale = Vector2(8, 8)
+texture = ExtResource("9_kek77")
+hframes = 4
+vframes = 8
+frame = 13
 
 [node name="groundCheck" type="RayCast2D" parent="body/part4"]
 target_position = Vector2(0, 40)
 hit_from_inside = true
 
 [node name="part5" type="Marker2D" parent="body"]
-position = Vector2(-277, 132)
+position = Vector2(-237, 132)
 
-[node name="part" type="ColorRect" parent="body/part5"]
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+[node name="Sprite2D" type="Sprite2D" parent="body/part5"]
+rotation = -3.14159
+scale = Vector2(8, 8)
+texture = ExtResource("9_kek77")
+hframes = 4
+vframes = 8
+frame = 15
 
 [node name="groundCheck" type="RayCast2D" parent="body/part5"]
 target_position = Vector2(0, 40)
@@ -200,11 +222,22 @@ hit_from_inside = true
 position = Vector2(420, 420)
 script = ExtResource("1_ig7tw")
 
-[node name="Head" type="ColorRect" parent="Snake"]
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+[node name="Sprite2D" type="Sprite2D" parent="Snake"]
+position = Vector2(3.05176e-05, 0)
+rotation = 1.57079
+scale = Vector2(8, 8)
+texture = ExtResource("9_kek77")
+hframes = 4
+vframes = 8
+
+[node name="Sprite2D2" type="Sprite2D" parent="Snake"]
+position = Vector2(3.05176e-05, 0)
+rotation = 1.57079
+scale = Vector2(8, 8)
+texture = ExtResource("9_kek77")
+hframes = 4
+vframes = 8
+frame = 3
 
 [node name="moveCheck" type="RayCast2D" parent="Snake"]
 
