@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://g741iiv65g2"
-path="res://.godot/imported/Snake.png-5d67125d5033f8734ccfd2d748605cdf.ctex"
+uid="uid://4rsclppfaxca"
+path="res://.godot/imported/StartingTreeBack.png-b281f5e17a448044213b4fdb424343e6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Snake.png"
-dest_files=["res://.godot/imported/Snake.png-5d67125d5033f8734ccfd2d748605cdf.ctex"]
+source_file="res://Sprites/StartingTreeBack.png"
+dest_files=["res://.godot/imported/StartingTreeBack.png-b281f5e17a448044213b4fdb424343e6.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dsnfjsbrw6uc"
-path="res://.godot/imported/Scaffolding.png-7b1357124e7293fcbc9bcbdfc2859c54.ctex"
+uid="uid://cberd3ce8vl3d"
+path="res://.godot/imported/StartingTreeFront.png-1efe1decf4f0568dfcd6e63f2dd7dfd7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scaffolding.png"
-dest_files=["res://.godot/imported/Scaffolding.png-7b1357124e7293fcbc9bcbdfc2859c54.ctex"]
+source_file="res://Sprites/StartingTreeFront.png"
+dest_files=["res://.godot/imported/StartingTreeFront.png-1efe1decf4f0568dfcd6e63f2dd7dfd7.ctex"]
 
 [params]
 

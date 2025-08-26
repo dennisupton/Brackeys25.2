@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://quytgt0ewv4v"
-path="res://.godot/imported/Cookies.png-8c4cd7162bd67f54ac478f383d9076d3.ctex"
+uid="uid://dsnfjsbrw6uc"
+path="res://.godot/imported/Scaffolding.png-d74f974e87e80284a1ad682ac2a7bce7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Cookies.png"
-dest_files=["res://.godot/imported/Cookies.png-8c4cd7162bd67f54ac478f383d9076d3.ctex"]
+source_file="res://Sprites/Scaffolding.png"
+dest_files=["res://.godot/imported/Scaffolding.png-d74f974e87e80284a1ad682ac2a7bce7.ctex"]
 
 [params]
 

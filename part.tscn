@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bdjobqiabtvk5"]
 
-[ext_resource type="Texture2D" uid="uid://g741iiv65g2" path="res://Snake.png" id="1_ut4fy"]
+[ext_resource type="Texture2D" uid="uid://g741iiv65g2" path="res://Sprites/Snake.png" id="1_ut4fy"]
 
 [node name="part" type="Marker2D"]
 

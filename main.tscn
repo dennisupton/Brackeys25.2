@@ -4,11 +4,11 @@
 [ext_resource type="Script" uid="uid://b1llmuumg7okq" path="res://snake.gd" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://bdjobqiabtvk5" path="res://part.tscn" id="2_lquwl"]
 [ext_resource type="Script" uid="uid://daslmfr6wvx8v" path="res://fallingBlock.gd" id="4_1bvp3"]
-[ext_resource type="Texture2D" uid="uid://quytgt0ewv4v" path="res://Cookies.png" id="4_7mycd"]
-[ext_resource type="Texture2D" uid="uid://cmb4gumgdi4vj" path="res://BreakableBlock.png" id="4_272bh"]
-[ext_resource type="Texture2D" uid="uid://bgjy7jw7vesoq" path="res://TileMap.png" id="4_lquwl"]
-[ext_resource type="Texture2D" uid="uid://dsnfjsbrw6uc" path="res://Scaffolding.png" id="5_5vw27"]
-[ext_resource type="Texture2D" uid="uid://g741iiv65g2" path="res://Snake.png" id="9_kek77"]
+[ext_resource type="Texture2D" uid="uid://quytgt0ewv4v" path="res://Sprites/Cookies.png" id="4_7mycd"]
+[ext_resource type="Texture2D" uid="uid://cmb4gumgdi4vj" path="res://Sprites/BreakableBlock.png" id="4_272bh"]
+[ext_resource type="Texture2D" uid="uid://bgjy7jw7vesoq" path="res://Sprites/TileMap.png" id="4_lquwl"]
+[ext_resource type="Texture2D" uid="uid://dsnfjsbrw6uc" path="res://Sprites/Scaffolding.png" id="5_5vw27"]
+[ext_resource type="Texture2D" uid="uid://g741iiv65g2" path="res://Sprites/Snake.png" id="9_kek77"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_h2yge"]
 
