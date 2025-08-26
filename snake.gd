@@ -17,9 +17,10 @@ var part = preload("res://part.tscn")
 var lastMove = 0
 var movedLastFrame = false
 
-func _ready():
-	for i in range(4):
-		grow($"../body".get_child($"../body".get_child_count()-1).global_position - Vector2(40,0),0)
+#func _ready():
+	
+	#grow(global_position - Vector2(40,0),0)
+	#grow($"../body".get_child($"../body".get_child_count()-1).global_position - Vector2(40,0),0)
 
 func _physics_process(delta: float) -> void:
 	moved = false
@@ -88,11 +89,17 @@ func _physics_process(delta: float) -> void:
 			supported = true
 	if !supported:
 		#position += Vector2(0,10)
-		position = lerp(position,position + Vector2(0,40),0.1)
+		position = lerp(position,position + Vector2(0,40),0.3)
 		for i in $"../body".get_children():
 			#i.position += Vector2(0,40)
-			i.position = lerp(i.position,i.position + Vector2(0,40),0.1)
-		
+			i.position = lerp(i.position,i.position + Vector2(0,40),0.3)
+	else:
+		#position.x = (round((position.x)/40)*40)
+		position.y = (round((position.y+20)/40)*40)-20
+		for i in $"../body".get_children():
+			#i.position += Vector2(0,40)
+			#i.position.x = (round((i.position.x)/40)*40)
+			i.position.y = (round((i.position.y+20)/40)*40)-20
 		
 		
 	if moved:

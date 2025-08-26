@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=4 uid="uid://bltteifflmcbh"]
+[gd_scene load_steps=15 format=4 uid="uid://bltteifflmcbh"]
 
 [ext_resource type="Script" uid="uid://xxp6t33mjesg" path="res://camera.gd" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://b1llmuumg7okq" path="res://snake.gd" id="1_ig7tw"]
-[ext_resource type="PackedScene" uid="uid://bdjobqiabtvk5" path="res://part.tscn" id="2_lquwl"]
+[ext_resource type="Texture2D" uid="uid://cberd3ce8vl3d" path="res://Sprites/StartingTreeFront.png" id="3_4c57u"]
 [ext_resource type="Script" uid="uid://daslmfr6wvx8v" path="res://fallingBlock.gd" id="4_1bvp3"]
+[ext_resource type="Texture2D" uid="uid://4rsclppfaxca" path="res://Sprites/StartingTreeBack.png" id="4_4c57u"]
 [ext_resource type="Texture2D" uid="uid://quytgt0ewv4v" path="res://Sprites/Cookies.png" id="4_7mycd"]
 [ext_resource type="Texture2D" uid="uid://cmb4gumgdi4vj" path="res://Sprites/BreakableBlock.png" id="4_272bh"]
 [ext_resource type="Texture2D" uid="uid://bgjy7jw7vesoq" path="res://Sprites/TileMap.png" id="4_lquwl"]
@@ -83,6 +84,7 @@ texture_region_size = Vector2i(5, 5)
 6:4/0 = 0
 6:5/0 = 0
 6:6/0 = 0
+6:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-2.5, -2.5, 2.5, -2.5, 2.5, 2.5, -2.5, 2.5)
 
 [sub_resource type="TileSet" id="TileSet_lquwl"]
 tile_size = Vector2i(5, 5)
@@ -101,9 +103,19 @@ script = ExtResource("1_0xm2m")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 scale = Vector2(8, 8)
-tile_map_data = PackedByteArray("AAAFAA0AAAAAAAUAAAAGAA0AAAABAAUAAAAHAA0AAAABAAUAAAAIAA0AAAABAAUAAAAJAA0AAAABAAUAAAAKAA0AAAABAAUAAAALAA0AAAABAAUAAAAMAA0AAAACAAQAAAANAA0AAAABAAUAAAAOAA0AAAABAAUAAAAPAA0AAAABAAUAAAAQAA0AAAADAAUAAAAZAA0AAQAAAAAAAAAaAA0AAQAAAAAAAAAbAA0AAQAAAAAAAAAcAA0AAQAAAAAAAAAdAA0AAQAAAAAAAAAEAA0AAAAAAAAAAAARAA0AAAAEAAAAAAA=")
+tile_map_data = PackedByteArray("AAAFAA0AAAAAAAUAAAAGAA0AAAABAAUAAAAHAA0AAAABAAUAAAAIAA0AAAABAAUAAAAJAA0AAAABAAUAAAAKAA0AAAABAAUAAAALAA0AAAABAAUAAAAMAA0AAAACAAQAAAANAA0AAAABAAUAAAAOAA0AAAABAAUAAAAPAA0AAAABAAUAAAAQAA0AAAADAAUAAAAZAA0AAQAAAAAAAAAaAA0AAQAAAAAAAAAbAA0AAQAAAAAAAAAcAA0AAQAAAAAAAAAdAA0AAQAAAAAAAAAEAA0AAAAAAAAAAAARAA0AAAAEAAAAAAADAAgAAAAGAAYAAAAHAAoAAAAGAAYAAAAFAAgAAAAGAAYAAAAGAAgAAAAGAAYAAAAHAAcAAAAGAAYAAAAHAAgAAAAGAAYAAAAHAAkAAAAGAAYAAAAIAAcAAAAGAAYAAAAEAAgAAAAGAAYAAAADAAcAAAAGAAYAAAADAAYAAAAGAAYAAAACAAYAAAAGAAYAAAABAAYAAAAGAAYAAAABAAUAAAAGAAYAAAABAAQAAAAGAAYAAAAAAAQAAAAGAAYAAAD//wQAAAAGAAYAAAD+/wQAAAAGAAYAAAD+/wUAAAAGAAYAAAD+/wYAAAAGAAYAAAD7/wYAAAAGAAYAAAD8/wYAAAAGAAYAAAD9/wYAAAAGAAYAAAAFAAwAAAAGAAYAAAAFAAsAAAAGAAYAAAAGAAsAAAAGAAYAAAAGAAwAAAAGAAYAAAAHAAwAAAAGAAYAAAAHAAsAAAAGAAYAAAAIAAsAAAAGAAYAAAAIAAwAAAAGAAYAAAAJAAwAAAAGAAYAAAAJAAcAAAAGAAYAAAAKAAcAAAAGAAYAAAD5/wYAAAAGAAYAAAD6/wYAAAAGAAYAAAD6/wcAAAAGAAYAAAALAAcAAAAGAAYAAAALAAYAAAAGAAYAAAAMAAYAAAAGAAYAAAANAAYAAAAGAAYAAAANAAUAAAAGAAYAAAAOAAUAAAAGAAYAAAAOAAQAAAAGAAYAAAAPAAQAAAAGAAYAAAAPAAMAAAAGAAYAAAAPAAIAAAAGAAYAAAAPAAEAAAAGAAYAAAAGAAkAAAAGAAYAAAAGAAoAAAAGAAYAAAA=")
 tile_set = SubResource("TileSet_lquwl")
 rendering_quadrant_size = 5
+
+[node name="tree" type="Sprite2D" parent="."]
+position = Vector2(280, 80)
+scale = Vector2(8, 8)
+texture = ExtResource("3_4c57u")
+
+[node name="Sprite2D" type="Sprite2D" parent="tree"]
+z_index = -1
+position = Vector2(-0.125, 0)
+texture = ExtResource("4_4c57u")
 
 [node name="Falling Block" type="StaticBody2D" parent="." groups=["Fall"]]
 position = Vector2(680, 480)
@@ -136,7 +148,7 @@ hframes = 4
 frame = 3
 
 [node name="cookie" type="StaticBody2D" parent="." groups=["cookie"]]
-position = Vector2(520, 440)
+position = Vector2(560, 120)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="cookie" groups=["Ladder"]]
 position = Vector2(20, 20)
@@ -157,13 +169,25 @@ hframes = 3
 frame = 2
 
 [node name="body" type="Node2D" parent="."]
-position = Vector2(497, 288)
+position = Vector2(397, 120)
 
-[node name="part" parent="body" instance=ExtResource("2_lquwl")]
-position = Vector2(-77, 132)
+[node name="part" type="Marker2D" parent="body"]
+position = Vector2(-57, 140)
+
+[node name="Sprite2D" type="Sprite2D" parent="body/part"]
+rotation = 1.57079
+scale = Vector2(8, 8)
+texture = ExtResource("9_kek77")
+hframes = 4
+vframes = 8
+frame = 4
+
+[node name="groundCheck" type="RayCast2D" parent="body/part"]
+target_position = Vector2(0, 21)
+hit_from_inside = true
 
 [node name="Snake" type="CharacterBody2D" parent="."]
-position = Vector2(460, 420)
+position = Vector2(380, 260)
 script = ExtResource("1_ig7tw")
 
 [node name="Sprite2D" type="Sprite2D" parent="Snake"]
