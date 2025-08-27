@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var movementCooldownHold = 200
-@export var movementCooldownTap = 10
+@export var movementCooldownTap = 5
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
