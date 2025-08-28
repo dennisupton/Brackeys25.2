@@ -14,8 +14,9 @@ position = Vector2(20, 20)
 shape = SubResource("RectangleShape2D_1j01k")
 
 [node name="Sprite2D" type="Sprite2D" parent="Ladder"]
+z_index = -1
 position = Vector2(20, 20)
 scale = Vector2(8, 8)
 texture = ExtResource("1_s54ic")
 hframes = 4
-frame = 3
+frame = 1

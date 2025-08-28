@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bdjobqiabtvk5"]
 
-[ext_resource type="Texture2D" uid="uid://g741iiv65g2" path="res://Sprites/Snake.png" id="1_ut4fy"]
+[ext_resource type="Texture2D" uid="uid://dipsjcqa7xign" path="res://Sprites/Snake.png" id="1_ut4fy"]
 
 [node name="part" type="Marker2D"]
 
@@ -8,7 +8,7 @@
 scale = Vector2(8, 8)
 texture = ExtResource("1_ut4fy")
 hframes = 4
-vframes = 8
+vframes = 4
 frame = 14
 
 [node name="groundCheck" type="RayCast2D" parent="."]
