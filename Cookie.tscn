@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://dnb8yqs22wf5o"]
+
+[ext_resource type="Texture2D" uid="uid://quytgt0ewv4v" path="res://Sprites/Cookies.png" id="1_7gt2p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t68xm"]
+size = Vector2(40, 40)
+
+[node name="Cookie" type="Node2D"]
+
+[node name="cookie" type="StaticBody2D" parent="." groups=["cookie"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="cookie" groups=["Ladder"]]
+position = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_t68xm")
+
+[node name="Sprite2D" type="Sprite2D" parent="cookie"]
+position = Vector2(20, 20)
+scale = Vector2(8, 8)
+texture = ExtResource("1_7gt2p")
+hframes = 3
+frame = 2
