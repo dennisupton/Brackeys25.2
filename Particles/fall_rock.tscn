@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwieuiom1royb"]
+
+[sub_resource type="Gradient" id="Gradient_0rl1p"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.362829, 0.362829, 0.362829, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_facbu"]
+gradient = SubResource("Gradient_0rl1p")
+width = 1
+
+[node name="fallRock" type="CPUParticles2D"]
+emitting = false
+amount = 10
+texture = SubResource("GradientTexture1D_facbu")
+lifetime = 0.5
+one_shot = true
+explosiveness = 0.34
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 70.83
+initial_velocity_max = 75.33
+damping_min = 62.613
+damping_max = 62.613
+scale_amount_min = 8.0
+scale_amount_max = 8.0

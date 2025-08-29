@@ -16,6 +16,9 @@ var supportedBefore = false
 var lastSupported = Vector2.ZERO
 var positionChange = Vector2.ZERO
 var part = preload("res://part.tscn")
+var aura = preload("res://Particles/aura.tscn")
+var fall_grass = preload("res://Particles/fall_grass.tscn")
+var fall_rock = preload("res://Particles/fall_rock.tscn")
 var lastMove = 0
 var movedLastFrame = false
 var debug = false
@@ -164,8 +167,6 @@ func _physics_process(delta: float) -> void:
 				nextRotation = $"../body".get_child(i).get_child(0).global_rotation_degrees
 				$"../body".get_child(i).get_child(0).global_rotation_degrees = originalRotation
 		$"../body".get_child($"../body".get_child_count()-1).get_child(0).global_rotation_degrees = $"../body".get_child($"../body".get_child_count()-2).get_child(0).global_rotation_degrees
-		$aura.global_position =  nextPosition
-		$aura.emitting = true
 func canMove(pos):
 	if debug:
 		return false
