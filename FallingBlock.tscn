@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://qc4k2tt18ne4"]
+[gd_scene load_steps=13 format=3 uid="uid://bk4w7wjb2dmpj"]
 
 [ext_resource type="Script" uid="uid://daslmfr6wvx8v" path="res://fallingBlock.gd" id="1_nigps"]
 [ext_resource type="Texture2D" uid="uid://cmb4gumgdi4vj" path="res://Sprites/BreakableBlock.png" id="2_fiq4h"]

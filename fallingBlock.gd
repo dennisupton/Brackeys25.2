@@ -1,7 +1,7 @@
 extends StaticBody2D
 
 var strength = 200
-@export var startStrength = 300
+@export var startStrength = 190
 var orFrame = 0
 var orpos= Vector2(0,0)
 var rand = RandomNumberGenerator.new()

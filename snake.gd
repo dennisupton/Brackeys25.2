@@ -20,6 +20,7 @@ var lastMove = 0
 var movedLastFrame = false
 var debug = false
 var falling = false
+var cookiesEaten = 0
 func _physics_process(delta: float) -> void:
 	#$"../Lava".position.y -= 0.4
 	if $lavacheck.is_colliding()  and $lavacheck.get_collider() and $lavacheck.get_collider().is_in_group("Lava"):
@@ -178,11 +179,12 @@ func canMove(pos):
 		if $moveCheck.get_collider().is_in_group("badCookie"):
 			$Timer.start()
 		else:
+			$moveCheck.get_collider().queue_free()
 			grow(nextPosition,nextRotation)
-		$moveCheck.get_collider().queue_free()
-		grow(nextPosition,nextRotation)
-		$eat.play()
-		$Sprite2D/Sprite2D2/cookieParticle.emitting = true
+			$eat.play()
+			$Sprite2D/Sprite2D2/cookieParticle.emitting = true
+		#else:
+			#grow(nextPosition,nextRotation)
 		
 	return false
 				
@@ -209,6 +211,9 @@ func canMoveUp():
 	else:
 		return true
 func grow(pos,rot):
+	cookiesEaten += 1
+	if (cookiesEaten <= 1):
+		return
 	var child = part.instantiate()
 	child.global_position = $"../body".get_child($"../body".get_child_count()-1).global_position
 	child.get_child(0).frame = 4
