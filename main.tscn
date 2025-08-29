@@ -1,4 +1,4 @@
-[gd_scene load_steps=76 format=4 uid="uid://bltteifflmcbh"]
+[gd_scene load_steps=81 format=4 uid="uid://bltteifflmcbh"]
 
 [ext_resource type="Script" uid="uid://xxp6t33mjesg" path="res://camera.gd" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://b1llmuumg7okq" path="res://snake.gd" id="1_ig7tw"]
@@ -33,6 +33,7 @@
 [ext_resource type="AudioStream" uid="uid://dy6reoat7kujf" path="res://SFX/Grass1.wav" id="25_0rl1p"]
 [ext_resource type="AudioStream" uid="uid://dcrsoa5x2c1qv" path="res://SFX/Grass2.wav" id="26_ok6jj"]
 [ext_resource type="AudioStream" uid="uid://bcguljtdc5bxt" path="res://SFX/Grass3.wav" id="27_facbu"]
+[ext_resource type="Texture2D" uid="uid://eigpdpj11dfq" path="res://Sprites/Cookies.png" id="31_h8e4i"]
 [ext_resource type="Script" uid="uid://cjfpcu58bofg" path="res://music.gd" id="34_come4"]
 [ext_resource type="AudioStream" uid="uid://b2lmqqdcnsyk" path="res://music/Bass.mp3" id="35_h8e4i"]
 [ext_resource type="AudioStream" uid="uid://cy32hdtixp5pq" path="res://music/Chords.mp3" id="36_4lmeg"]
@@ -1943,6 +1944,47 @@ texture_region_size = Vector2i(60, 60)
 tile_size = Vector2i(60, 60)
 sources/1 = SubResource("TileSetAtlasSource_074og")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t68xm"]
+size = Vector2(40, 40)
+
+[sub_resource type="Animation" id="Animation_t68xm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(20, 20)]
+}
+
+[sub_resource type="Animation" id="Animation_7gt2p"]
+resource_name = "bounce"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.766667, 1.46667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(20, 26), Vector2(20, 14), Vector2(20, 26)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_672qt"]
+_data = {
+&"RESET": SubResource("Animation_t68xm"),
+&"bounce": SubResource("Animation_7gt2p")
+}
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1j01k"]
 size = Vector2(40, 40)
 
@@ -2090,7 +2132,7 @@ scale_amount_min = 8.0
 scale_amount_max = 8.0
 
 [node name="Snake" type="CharacterBody2D" parent="."]
-position = Vector2(380, 220)
+position = Vector2(137, -2247)
 script = ExtResource("1_ig7tw")
 
 [node name="Sprite2D" type="Sprite2D" parent="Snake"]
@@ -2201,6 +2243,10 @@ damping_max = 62.613
 scale_amount_min = 8.0
 scale_amount_max = 8.0
 
+[node name="Timer" type="Timer" parent="Snake"]
+wait_time = 6.0
+one_shot = true
+
 [node name="Backround" type="TileMapLayer" parent="."]
 z_index = -5
 position = Vector2(40, 80)
@@ -2223,6 +2269,28 @@ position = Vector2(-400, -1200)
 
 [node name="Cookie" parent="Cookies" instance=ExtResource("17_yaehf")]
 position = Vector2(-240, -235)
+
+[node name="BadCookie" type="Node2D" parent="Cookies" groups=["cookie"]]
+position = Vector2(239, -2161)
+
+[node name="cookie" type="StaticBody2D" parent="Cookies/BadCookie" groups=["badCookie", "cookie"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cookies/BadCookie/cookie"]
+position = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_t68xm")
+
+[node name="Sprite2D" type="Sprite2D" parent="Cookies/BadCookie/cookie"]
+position = Vector2(20, 20)
+scale = Vector2(8, 8)
+texture = ExtResource("31_h8e4i")
+hframes = 3
+frame = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Cookies/BadCookie/cookie"]
+libraries = {
+&"": SubResource("AnimationLibrary_672qt")
+}
+autoplay = "bounce"
 
 [node name="FallingBlock" parent="." instance=ExtResource("22_d13ii")]
 position = Vector2(200, 240)
@@ -2439,6 +2507,8 @@ metadata/music = [true, false, false, false, false, false]
 [node name="9" type="Marker2D" parent="music"]
 position = Vector2(23, 163)
 metadata/music = [true, false, false, false, false, false]
+
+[connection signal="timeout" from="Snake/Timer" to="Snake" method="_on_timer_timeout"]
 
 [editable path="Ladders/Ladder7"]
 [editable path="Ladders/Ladder19"]
