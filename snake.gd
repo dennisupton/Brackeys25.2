@@ -12,21 +12,32 @@ var nextPosition = Vector2.ZERO
 var originalRotation = 0
 var nextRotation = 0
 var supported = false
+var supportedBefore = false
+var lastSupported = Vector2.ZERO
 var positionChange = Vector2.ZERO
 var part = preload("res://part.tscn")
 var lastMove = 0
 var movedLastFrame = false
-
-#func _ready():
-	
-	#grow(global_position - Vector2(40,0),0)
-	#grow($"../body".get_child($"../body".get_child_count()-1).global_position - Vector2(40,0),0)
+var debug = false
 
 func _physics_process(delta: float) -> void:
+	#$"../Lava".position.y -= 0.4
+	if $lavacheck.is_colliding()  and $lavacheck.get_collider() and $lavacheck.get_collider().is_in_group("Lava"):
+		get_tree().reload_current_scene()
+	if $lavacheck.is_colliding() and $lavacheck.get_collider() and  $lavacheck.get_collider().is_in_group("cookie"):
+		$lavacheck.get_collider().queue_free()
+		grow(nextPosition,nextRotation)
+		$eat.play()
+		$Sprite2D/Sprite2D2/cookieParticle.emitting = true
 	moved = false
 	positionChange = Vector2.ZERO
 	originalPosition = global_position
 	var originalRotation = $Sprite2D.rotation_degrees
+	if  Input.is_action_just_pressed("debug"):
+		if debug:
+			debug = false
+		else:
+			debug = true
 	if (Time.get_ticks_msec()-lastMove > movementCooldownHold and movedLastFrame == true and supported):
 		if Input.is_action_pressed("ui_up") and canMoveUp():
 			positionChange.y -= 40
@@ -50,6 +61,7 @@ func _physics_process(delta: float) -> void:
 			$Sprite2D.rotation_degrees = 0
 			moved = true
 		elif Input.is_action_just_pressed("ui_down"):
+			
 			positionChange.y += 40
 			$Sprite2D.rotation_degrees = 180
 			moved = true
@@ -67,6 +79,10 @@ func _physics_process(delta: float) -> void:
 		$moveCheck.force_raycast_update()
 		
 		if !canMove(position+positionChange):
+			if $groundCheck.get_collider()  and $groundCheck.get_collider().is_in_group("Rock"):
+				$move.play()
+			else:
+				$grass.play()
 			position += positionChange
 			lastMove = Time.get_ticks_msec()
 		else:
@@ -75,18 +91,38 @@ func _physics_process(delta: float) -> void:
 	if !(Input.is_action_pressed("ui_up") or Input.is_action_pressed("ui_down") or Input.is_action_pressed("ui_left") or Input.is_action_pressed("ui_right")):
 		movedLastFrame = false
 	#check if supported
+	supportedBefore = supported
 	supported = false
 	$groundCheck.force_raycast_update()
-	if $groundCheck.is_colliding():
+	if $groundCheck.is_colliding() and !$groundCheck.get_collider().is_in_group("cookie"):
+		if !supportedBefore:
+			if $groundCheck.get_collider().is_in_group("Rock"):
+				$rockFall.play()
+				$fallRock.emitting = true
+			else:
+				$grassFall.play()
+				$fallGrass.emitting = true
 		supported = true
-		if $groundCheck.get_collider() and $groundCheck.get_collider().is_in_group("Fall"):
+		if $groundCheck.get_collider().is_in_group("Fall"):
 			$groundCheck.get_collider().hit()
 	for i in $"../body".get_child_count():
 		$"../body".get_child(i).get_child(1).force_raycast_update()
-		if $"../body".get_child(i).get_child(1).is_colliding():
+		if $"../body".get_child(i).get_child(1).is_colliding() and !$"../body".get_child(i).get_child(1).get_collider().is_in_group("cookie"):
 			if $"../body".get_child(i).get_child(1).get_collider().is_in_group("Fall"):
 				$"../body".get_child(i).get_child(1).get_collider().hit()
+			if !supportedBefore:
+				
+				if $"../body".get_child(i).get_child(1).get_collider().is_in_group("Rock"):
+					$rockFall.volume_db = -15.0 + float(lastSupported.distance_to(position))/40
+					$rockFall.play()
+					$"../body".get_child(i).get_child(2).emitting = true
+				else:
+					$grassFall.volume_db = -15.0 + float(lastSupported.distance_to(position))/40
+					$grassFall.play()
+					$"../body".get_child(i).get_child(3).emitting = true
 			supported = true
+	if debug:
+		supported = true
 	if !supported:
 		#position += Vector2(0,10)
 		position = lerp(position,position + Vector2(0,40),0.3)
@@ -94,6 +130,7 @@ func _physics_process(delta: float) -> void:
 			#i.position += Vector2(0,40)
 			i.position = lerp(i.position,i.position + Vector2(0,40),0.3)
 	else:
+		lastSupported = position
 		#position.x = (round((position.x)/40)*40)
 		position.y = (round((position.y+20)/40)*40)-20
 		for i in $"../body".get_children():
@@ -117,7 +154,11 @@ func _physics_process(delta: float) -> void:
 				nextRotation = $"../body".get_child(i).get_child(0).global_rotation_degrees
 				$"../body".get_child(i).get_child(0).global_rotation_degrees = originalRotation
 		$"../body".get_child($"../body".get_child_count()-1).get_child(0).global_rotation_degrees = $"../body".get_child($"../body".get_child_count()-2).get_child(0).global_rotation_degrees
+		$aura.global_position =  nextPosition
+		$aura.emitting = true
 func canMove(pos):
+	if debug:
+		return false
 	for i in $"../body".get_child_count():
 		if pos == $"../body".get_child(i).global_position:
 			return true
@@ -127,10 +168,14 @@ func canMove(pos):
 	if $moveCheck.is_colliding() and  $moveCheck.get_collider().is_in_group("cookie"):
 		$moveCheck.get_collider().queue_free()
 		grow(nextPosition,nextRotation)
+		$eat.play()
+		$Sprite2D/Sprite2D2/cookieParticle.emitting = true
 	return false
 				
 				
 func canMoveUp():
+	if debug:
+		return true
 	var straight = true
 	var x = global_position.x
 

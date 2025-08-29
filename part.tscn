@@ -1,6 +1,22 @@
-[gd_scene load_steps=2 format=3 uid="uid://bdjobqiabtvk5"]
+[gd_scene load_steps=6 format=3 uid="uid://bdjobqiabtvk5"]
 
 [ext_resource type="Texture2D" uid="uid://dipsjcqa7xign" path="res://Sprites/Snake.png" id="1_ut4fy"]
+
+[sub_resource type="Gradient" id="Gradient_0rl1p"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.362829, 0.362829, 0.362829, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ut4fy"]
+gradient = SubResource("Gradient_0rl1p")
+width = 1
+
+[sub_resource type="Gradient" id="Gradient_ut4fy"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.388235, 0.529412, 0.152941, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_iflea"]
+gradient = SubResource("Gradient_ut4fy")
+width = 1
 
 [node name="part" type="Marker2D"]
 
@@ -14,3 +30,36 @@ frame = 14
 [node name="groundCheck" type="RayCast2D" parent="."]
 target_position = Vector2(0, 21)
 hit_from_inside = true
+
+[node name="fallRock" type="CPUParticles2D" parent="."]
+position = Vector2(0, 20)
+emitting = false
+amount = 10
+texture = SubResource("GradientTexture1D_ut4fy")
+lifetime = 0.5
+one_shot = true
+explosiveness = 0.34
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 70.83
+initial_velocity_max = 75.33
+damping_min = 62.613
+damping_max = 62.613
+scale_amount_min = 8.0
+scale_amount_max = 8.0
+
+[node name="fallGrass" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 10
+texture = SubResource("GradientTexture1D_iflea")
+lifetime = 0.5
+one_shot = true
+explosiveness = 0.34
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 70.83
+initial_velocity_max = 75.33
+damping_min = 62.613
+damping_max = 62.613
+scale_amount_min = 8.0
+scale_amount_max = 8.0
