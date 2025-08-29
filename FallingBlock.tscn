@@ -1,0 +1,51 @@
+[gd_scene load_steps=13 format=3 uid="uid://qc4k2tt18ne4"]
+
+[ext_resource type="Script" uid="uid://daslmfr6wvx8v" path="res://fallingBlock.gd" id="1_nigps"]
+[ext_resource type="Texture2D" uid="uid://cmb4gumgdi4vj" path="res://Sprites/BreakableBlock.png" id="2_fiq4h"]
+[ext_resource type="AudioStream" uid="uid://cf8bqnv3f45vf" path="res://SFX/BlockBrake1.wav" id="3_1hpff"]
+[ext_resource type="AudioStream" uid="uid://bmrmpu5t32au" path="res://SFX/BlockBrake2.wav" id="4_yvl1v"]
+[ext_resource type="AudioStream" uid="uid://c8k6f8x5byyw8" path="res://SFX/BlockBrake3.wav" id="5_y7i6n"]
+[ext_resource type="AudioStream" uid="uid://c81g37ol4liwy" path="res://SFX/BlockCollapse1.wav" id="6_ylk7t"]
+[ext_resource type="AudioStream" uid="uid://cy7xqf74kfhp2" path="res://SFX/BlockCollapse2.wav" id="7_3bhd0"]
+[ext_resource type="AudioStream" uid="uid://c2h7i4sd5ga0r" path="res://SFX/BlockCollapse3.wav" id="8_1kj77"]
+[ext_resource type="AudioStream" uid="uid://bwbli3sxub0rj" path="res://SFX/BlockCollapse4.wav" id="9_j0a1c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r8gur"]
+size = Vector2(40, 40)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ryv7c"]
+streams_count = 3
+stream_0/stream = ExtResource("3_1hpff")
+stream_1/stream = ExtResource("4_yvl1v")
+stream_2/stream = ExtResource("5_y7i6n")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_6tn00"]
+streams_count = 4
+stream_0/stream = ExtResource("6_ylk7t")
+stream_1/stream = ExtResource("7_3bhd0")
+stream_2/stream = ExtResource("8_1kj77")
+stream_3/stream = ExtResource("9_j0a1c")
+
+[node name="FallingBlodk" type="Node2D"]
+
+[node name="Falling Block" type="StaticBody2D" parent="." groups=["Fall"]]
+script = ExtResource("1_nigps")
+startStrength = 800
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Falling Block"]
+position = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_r8gur")
+
+[node name="Sprite2D" type="Sprite2D" parent="Falling Block"]
+position = Vector2(20, 20)
+scale = Vector2(8, 8)
+texture = ExtResource("2_fiq4h")
+hframes = 4
+vframes = 3
+
+[node name="break" type="AudioStreamPlayer" parent="Falling Block"]
+stream = SubResource("AudioStreamRandomizer_ryv7c")
+volume_db = -15.261
+
+[node name="collapse" type="AudioStreamPlayer" parent="Falling Block"]
+stream = SubResource("AudioStreamRandomizer_6tn00")
