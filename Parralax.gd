@@ -1,6 +1,7 @@
 extends Node
 var oldPosition = Vector2.ZERO
 var moveMagnitude = 0.5
+
 func _process(delta: float) -> void:
 	var position =  $"../Camera2D".position
 	if (position != oldPosition):

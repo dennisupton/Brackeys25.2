@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://b1llmuumg7okq" path="res://snake.gd" id="1_ig7tw"]
 [ext_resource type="Shader" uid="uid://cnxhnclp1m47u" path="res://wobble.gdshader" id="2_82xsv"]
 [ext_resource type="Texture2D" uid="uid://cberd3ce8vl3d" path="res://Sprites/StartingTreeFront.png" id="3_4c57u"]
-[ext_resource type="Texture2D" uid="uid://xys1da0he0bl" path="res://Sprites/Backround.png" id="3_efxa6"]
+[ext_resource type="Texture2D" uid="uid://ctsdfbin4pvt0" path="res://Sprites/Backround.png" id="3_efxa6"]
 [ext_resource type="Texture2D" uid="uid://4rsclppfaxca" path="res://Sprites/StartingTreeBack.png" id="4_4c57u"]
 [ext_resource type="Texture2D" uid="uid://bgjy7jw7vesoq" path="res://Sprites/TileMap.png" id="4_lquwl"]
 [ext_resource type="Texture2D" uid="uid://dlkxn1l4gqkoh" path="res://Sprites/TileMap3.png" id="4_yaehf"]
@@ -2219,7 +2219,7 @@ one_shot = true
 z_index = -5
 position = Vector2(40, 80)
 scale = Vector2(8, 8)
-tile_map_data = PackedByteArray("AAD6//z/AQAAAAQAAAD6//3/AQACAAQAAAD6//7/AQAAAAUAAAD6////AQABAAUAAAD6/wAAAQAAAAYAAAD7//z/AQABAAQAAAD7//3/AQABAAQAAAD7//7/AQAAAAUAAAD7////AQABAAUAAAD7/wAAAQABAAYAAAD8//z/AQAAAAQAAAD8//3/AQAAAAQAAAD8//7/AQABAAUAAAD8////AQACAAUAAAD8/wAAAQAAAAYAAAD9//z/AQAAAAQAAAD9//3/AQABAAQAAAD9//7/AQAAAAUAAAD9////AQAAAAUAAAD9/wAAAQAAAAYAAAD+//z/AQABAAQAAAD+//3/AQACAAQAAAD+//7/AQAAAAUAAAD+////AQAAAAUAAAD+/wAAAQABAAYAAAD///z/AQACAAQAAAD///3/AQABAAQAAAD///7/AQABAAUAAAD/////AQABAAUAAAD//wAAAQAAAAYAAAAAAPz/AQAAAAQAAAAAAP3/AQAAAAQAAAAAAP7/AQAAAAUAAAAAAP//AQAAAAUAAAAAAAAAAQACAAYAAAABAPz/AQACAAQAAAABAP3/AQABAAQAAAABAP7/AQABAAUAAAABAP//AQAAAAUAAAABAAAAAQACAAYAAAACAPz/AQACAAQAAAACAP3/AQAAAAQAAAACAP7/AQAAAAUAAAACAP//AQABAAUAAAACAAAAAQACAAYAAAADAPz/AQACAAQAAAADAP3/AQAAAAQAAAADAP7/AQABAAUAAAADAP//AQACAAUAAAADAAAAAQAAAAYAAAAEAPz/AQAAAAQAAAAEAP3/AQAAAAQAAAAEAP7/AQABAAUAAAAEAP//AQAAAAUAAAAEAAAAAQAAAAYAAAAFAPz/AQABAAQAAAAFAP3/AQACAAQAAAAFAP7/AQABAAUAAAAFAP//AQABAAUAAAAFAAAAAQABAAYAAAAGAPz/AQACAAQAAAAGAP3/AQACAAQAAAAGAP7/AQACAAUAAAAGAP//AQACAAUAAAAGAAAAAQACAAYAAAD6/wEAAQACAAYAAAD7/wEAAQABAAYAAAD8/wEAAQACAAYAAAD9/wEAAQAAAAYAAAD+/wEAAQABAAYAAAD//wEAAQAAAAYAAAAAAAEAAQABAAYAAAABAAEAAQACAAYAAAACAAEAAQAAAAYAAAADAAEAAQABAAYAAAAEAAEAAQAAAAYAAAAFAAEAAQABAAYAAAAGAAEAAQACAAYAAAD6//v/AQAAAAMAAAD7//v/AQABAAMAAAD8//v/AQACAAMAAAD9//v/AQAAAAMAAAD+//v/AQABAAMAAAD///v/AQACAAMAAAAAAPv/AQAAAAMAAAABAPv/AQABAAMAAAACAPv/AQACAAMAAAADAPv/AQAAAAMAAAAEAPv/AQABAAMAAAAFAPv/AQACAAMAAAAGAPv/AQAAAAMAAAAEAPj/AQAAAAAAAAAEAPn/AQAAAAEAAAAEAPr/AQAAAAIAAAAFAPj/AQABAAAAAAAFAPn/AQABAAEAAAAFAPr/AQABAAIAAAAGAPj/AQACAAAAAAAGAPn/AQACAAEAAAAGAPr/AQACAAIAAAABAPj/AQAAAAAAAAABAPn/AQAAAAEAAAABAPr/AQAAAAIAAAACAPj/AQABAAAAAAACAPn/AQABAAEAAAACAPr/AQABAAIAAAADAPj/AQACAAAAAAADAPn/AQACAAEAAAADAPr/AQACAAIAAAD+//j/AQAAAAAAAAD+//n/AQAAAAEAAAD+//r/AQAAAAIAAAD///j/AQABAAAAAAD///n/AQABAAEAAAD///r/AQABAAIAAAAAAPj/AQACAAAAAAAAAPn/AQACAAEAAAAAAPr/AQACAAIAAAD7//j/AQAAAAAAAAD7//n/AQAAAAEAAAD7//r/AQAAAAIAAAD8//j/AQABAAAAAAD8//n/AQABAAEAAAD8//r/AQABAAIAAAD9//j/AQACAAAAAAD9//n/AQACAAEAAAD9//r/AQACAAIAAAD6//j/AQAAAAAAAAD6//n/AQAAAAEAAAD6//r/AQAAAAIAAAD6//f/AQAAAAAAAAD7//f/AQABAAAAAAD8//f/AQACAAAAAAD9//f/AQAAAAAAAAD+//f/AQABAAAAAAD///f/AQACAAAAAAAAAPf/AQAAAAAAAAABAPf/AQABAAAAAAACAPf/AQAAAAAAAAADAPf/AQABAAAAAAAEAPf/AQAAAAAAAAAFAPf/AQABAAAAAAAGAPf/AQACAAAAAAA=")
+tile_map_data = PackedByteArray("AAD6//z/AQAAAAQAAAD6//3/AQACAAQAAAD6//7/AQAAAAUAAAD6////AQABAAUAAAD6/wAAAQAAAAYAAAD7//z/AQABAAQAAAD7//3/AQABAAQAAAD7//7/AQAAAAUAAAD7////AQABAAUAAAD7/wAAAQABAAYAAAD8//z/AQAAAAQAAAD8//3/AQAAAAQAAAD8//7/AQABAAUAAAD8////AQACAAUAAAD8/wAAAQAAAAYAAAD9//z/AQAAAAQAAAD9//3/AQABAAQAAAD9//7/AQAAAAUAAAD9////AQAAAAUAAAD9/wAAAQAAAAYAAAD+//z/AQABAAQAAAD+//3/AQACAAQAAAD+//7/AQAAAAUAAAD+////AQAAAAUAAAD+/wAAAQABAAYAAAD///z/AQACAAQAAAD///3/AQABAAQAAAD///7/AQABAAUAAAD/////AQABAAUAAAD//wAAAQAAAAYAAAAAAPz/AQAAAAQAAAAAAP3/AQAAAAQAAAAAAP7/AQAAAAUAAAAAAP//AQAAAAUAAAAAAAAAAQACAAYAAAABAPz/AQACAAQAAAABAP3/AQABAAQAAAABAP7/AQABAAUAAAABAP//AQAAAAUAAAABAAAAAQACAAYAAAACAPz/AQACAAQAAAACAP3/AQAAAAQAAAACAP7/AQAAAAUAAAACAP//AQABAAUAAAACAAAAAQACAAYAAAADAPz/AQACAAQAAAADAP3/AQAAAAQAAAADAP7/AQABAAUAAAADAP//AQACAAUAAAADAAAAAQAAAAYAAAAEAPz/AQAAAAQAAAAEAP3/AQAAAAQAAAAEAP7/AQABAAUAAAAEAP//AQAAAAUAAAAEAAAAAQAAAAYAAAAFAPz/AQABAAQAAAAFAP3/AQACAAQAAAAFAP7/AQABAAUAAAAFAP//AQABAAUAAAAFAAAAAQABAAYAAAAGAPz/AQACAAQAAAAGAP3/AQACAAQAAAAGAP7/AQACAAUAAAAGAP//AQACAAUAAAAGAAAAAQACAAYAAAD6/wEAAQACAAYAAAD7/wEAAQABAAYAAAD8/wEAAQACAAYAAAD9/wEAAQAAAAYAAAD+/wEAAQABAAYAAAD//wEAAQAAAAYAAAAAAAEAAQABAAYAAAABAAEAAQACAAYAAAACAAEAAQAAAAYAAAADAAEAAQABAAYAAAAEAAEAAQAAAAYAAAAFAAEAAQABAAYAAAAGAAEAAQACAAYAAAD6//v/AQAAAAMAAAD7//v/AQABAAMAAAD8//v/AQACAAMAAAD9//v/AQAAAAMAAAD+//v/AQABAAMAAAD///v/AQACAAMAAAAAAPv/AQAAAAMAAAABAPv/AQABAAMAAAACAPv/AQACAAMAAAADAPv/AQAAAAMAAAAEAPv/AQABAAMAAAAFAPv/AQACAAMAAAAGAPv/AQAAAAMAAAAEAPj/AQAAAAAAAAAEAPn/AQAAAAEAAAAEAPr/AQAAAAIAAAAFAPj/AQABAAAAAAAFAPn/AQABAAEAAAAFAPr/AQABAAIAAAAGAPj/AQACAAAAAAAGAPn/AQACAAEAAAAGAPr/AQACAAIAAAABAPj/AQAAAAAAAAABAPn/AQAAAAEAAAABAPr/AQAAAAIAAAACAPj/AQABAAAAAAACAPn/AQABAAEAAAACAPr/AQABAAIAAAADAPj/AQACAAAAAAADAPn/AQACAAEAAAADAPr/AQACAAIAAAD+//j/AQAAAAAAAAD+//n/AQAAAAEAAAD+//r/AQAAAAIAAAD///j/AQABAAAAAAD///n/AQABAAEAAAD///r/AQABAAIAAAAAAPj/AQACAAAAAAAAAPn/AQACAAEAAAAAAPr/AQACAAIAAAD7//j/AQAAAAAAAAD7//n/AQAAAAEAAAD7//r/AQAAAAIAAAD8//j/AQABAAAAAAD8//n/AQABAAEAAAD8//r/AQABAAIAAAD9//j/AQACAAAAAAD9//n/AQACAAEAAAD9//r/AQACAAIAAAD6//j/AQAAAAAAAAD6//n/AQAAAAEAAAD6//r/AQAAAAIAAAA=")
 tile_set = SubResource("TileSet_w48qg")
 rendering_quadrant_size = 5
 script = ExtResource("18_074og")
@@ -2914,113 +2914,6 @@ emission_rect_extents = Vector2(5000, 5000)
 scale_amount_min = 20.0
 scale_amount_max = 20.0
 
-[node name="Clouds" type="Node" parent="."]
-
-[node name="Cloud" parent="Clouds" instance=ExtResource("45_0n3wm")]
-position = Vector2(910, -3575)
-
-[node name="Sprite2D" parent="Clouds/Cloud" index="0"]
-frame = 4
-
-[node name="Cloud2" parent="Clouds" instance=ExtResource("45_0n3wm")]
-position = Vector2(-290, -3120)
-
-[node name="Cloud3" parent="Clouds" instance=ExtResource("45_0n3wm")]
-position = Vector2(270, -2760)
-
-[node name="Sprite2D" parent="Clouds/Cloud3" index="0"]
-frame = 5
-
-[node name="Cloud4" parent="Clouds" instance=ExtResource("45_0n3wm")]
-position = Vector2(665, -3705)
-
-[node name="Sprite2D" parent="Clouds/Cloud4" index="0"]
-frame = 0
-
-[node name="Cloud5" parent="Clouds" instance=ExtResource("45_0n3wm")]
-position = Vector2(-535, -3385)
-
-[node name="Sprite2D" parent="Clouds/Cloud5" index="0"]
-frame = 1
-
-[node name="Cloud7" parent="Clouds" instance=ExtResource("45_0n3wm")]
-position = Vector2(-495, -3570)
-
-[node name="Cloud6" parent="Clouds" instance=ExtResource("45_0n3wm")]
-position = Vector2(340, -3155)
-
-[node name="Sprite2D" parent="Clouds/Cloud6" index="0"]
-frame = 6
-
-[node name="Cloud8" parent="Clouds" instance=ExtResource("45_0n3wm")]
-position = Vector2(-405, -2940)
-
-[node name="Sprite2D" parent="Clouds/Cloud8" index="0"]
-frame = 0
-
-[node name="Cloud21" parent="Clouds" instance=ExtResource("45_0n3wm")]
-position = Vector2(-1135, -2970)
-
-[node name="Sprite2D" parent="Clouds/Cloud21" index="0"]
-frame = 0
-
-[node name="Cloud9" parent="Clouds" instance=ExtResource("45_0n3wm")]
-position = Vector2(197, -2665)
-
-[node name="Sprite2D" parent="Clouds/Cloud9" index="0"]
-frame = 1
-
-[node name="Cloud17" parent="Clouds" instance=ExtResource("45_0n3wm")]
-position = Vector2(-1430, -3795)
-
-[node name="Cloud18" parent="Clouds" instance=ExtResource("45_0n3wm")]
-position = Vector2(-675, -3140)
-
-[node name="Sprite2D" parent="Clouds/Cloud18" index="0"]
-frame = 6
-
-[node name="Cloud19" parent="Clouds" instance=ExtResource("45_0n3wm")]
-position = Vector2(-1355, -2520)
-
-[node name="Sprite2D" parent="Clouds/Cloud19" index="0"]
-frame = 0
-
-[node name="Cloud20" parent="Clouds" instance=ExtResource("45_0n3wm")]
-position = Vector2(-818, -2650)
-
-[node name="Sprite2D" parent="Clouds/Cloud20" index="0"]
-frame = 1
-
-[node name="Cloud10" parent="Clouds" instance=ExtResource("45_0n3wm")]
-position = Vector2(935, -3455)
-
-[node name="Cloud11" parent="Clouds" instance=ExtResource("45_0n3wm")]
-position = Vector2(140, -3940)
-
-[node name="Cloud12" parent="Clouds" instance=ExtResource("45_0n3wm")]
-position = Vector2(930, -3230)
-
-[node name="Sprite2D" parent="Clouds/Cloud12" index="0"]
-frame = 7
-
-[node name="Cloud13" parent="Clouds" instance=ExtResource("45_0n3wm")]
-position = Vector2(1800, -2605)
-
-[node name="Sprite2D" parent="Clouds/Cloud13" index="0"]
-frame = 1
-
-[node name="Cloud14" parent="Clouds" instance=ExtResource("45_0n3wm")]
-position = Vector2(2090, -3460)
-
-[node name="Cloud15" parent="Clouds" instance=ExtResource("45_0n3wm")]
-position = Vector2(1295, -3945)
-
-[node name="Cloud16" parent="Clouds" instance=ExtResource("45_0n3wm")]
-position = Vector2(2050, -2485)
-
-[node name="Sprite2D" parent="Clouds/Cloud16" index="0"]
-frame = 7
-
 [node name="music" type="Node2D" parent="."]
 script = ExtResource("34_come4")
 
@@ -3094,6 +2987,113 @@ metadata/music = [false, true, true, true, true, true, true]
 [node name="9" type="Marker2D" parent="music"]
 position = Vector2(-310, -5840)
 metadata/music = [false, false, false, false, false, true, false]
+
+[node name="Clouds" type="Node" parent="music"]
+
+[node name="Cloud" parent="music/Clouds" instance=ExtResource("45_0n3wm")]
+position = Vector2(910, -3575)
+
+[node name="Sprite2D" parent="music/Clouds/Cloud" index="0"]
+frame = 4
+
+[node name="Cloud2" parent="music/Clouds" instance=ExtResource("45_0n3wm")]
+position = Vector2(-290, -3120)
+
+[node name="Cloud3" parent="music/Clouds" instance=ExtResource("45_0n3wm")]
+position = Vector2(270, -2760)
+
+[node name="Sprite2D" parent="music/Clouds/Cloud3" index="0"]
+frame = 5
+
+[node name="Cloud4" parent="music/Clouds" instance=ExtResource("45_0n3wm")]
+position = Vector2(665, -3705)
+
+[node name="Sprite2D" parent="music/Clouds/Cloud4" index="0"]
+frame = 0
+
+[node name="Cloud5" parent="music/Clouds" instance=ExtResource("45_0n3wm")]
+position = Vector2(-535, -3385)
+
+[node name="Sprite2D" parent="music/Clouds/Cloud5" index="0"]
+frame = 1
+
+[node name="Cloud7" parent="music/Clouds" instance=ExtResource("45_0n3wm")]
+position = Vector2(-495, -3570)
+
+[node name="Cloud6" parent="music/Clouds" instance=ExtResource("45_0n3wm")]
+position = Vector2(340, -3155)
+
+[node name="Sprite2D" parent="music/Clouds/Cloud6" index="0"]
+frame = 6
+
+[node name="Cloud8" parent="music/Clouds" instance=ExtResource("45_0n3wm")]
+position = Vector2(-405, -2940)
+
+[node name="Sprite2D" parent="music/Clouds/Cloud8" index="0"]
+frame = 0
+
+[node name="Cloud21" parent="music/Clouds" instance=ExtResource("45_0n3wm")]
+position = Vector2(-1135, -2970)
+
+[node name="Sprite2D" parent="music/Clouds/Cloud21" index="0"]
+frame = 0
+
+[node name="Cloud9" parent="music/Clouds" instance=ExtResource("45_0n3wm")]
+position = Vector2(197, -2665)
+
+[node name="Sprite2D" parent="music/Clouds/Cloud9" index="0"]
+frame = 1
+
+[node name="Cloud17" parent="music/Clouds" instance=ExtResource("45_0n3wm")]
+position = Vector2(-1430, -3795)
+
+[node name="Cloud18" parent="music/Clouds" instance=ExtResource("45_0n3wm")]
+position = Vector2(-675, -3140)
+
+[node name="Sprite2D" parent="music/Clouds/Cloud18" index="0"]
+frame = 6
+
+[node name="Cloud19" parent="music/Clouds" instance=ExtResource("45_0n3wm")]
+position = Vector2(-1355, -2520)
+
+[node name="Sprite2D" parent="music/Clouds/Cloud19" index="0"]
+frame = 0
+
+[node name="Cloud20" parent="music/Clouds" instance=ExtResource("45_0n3wm")]
+position = Vector2(-818, -2650)
+
+[node name="Sprite2D" parent="music/Clouds/Cloud20" index="0"]
+frame = 1
+
+[node name="Cloud10" parent="music/Clouds" instance=ExtResource("45_0n3wm")]
+position = Vector2(935, -3455)
+
+[node name="Cloud11" parent="music/Clouds" instance=ExtResource("45_0n3wm")]
+position = Vector2(140, -3940)
+
+[node name="Cloud12" parent="music/Clouds" instance=ExtResource("45_0n3wm")]
+position = Vector2(930, -3230)
+
+[node name="Sprite2D" parent="music/Clouds/Cloud12" index="0"]
+frame = 7
+
+[node name="Cloud13" parent="music/Clouds" instance=ExtResource("45_0n3wm")]
+position = Vector2(1800, -2605)
+
+[node name="Sprite2D" parent="music/Clouds/Cloud13" index="0"]
+frame = 1
+
+[node name="Cloud14" parent="music/Clouds" instance=ExtResource("45_0n3wm")]
+position = Vector2(2090, -3460)
+
+[node name="Cloud15" parent="music/Clouds" instance=ExtResource("45_0n3wm")]
+position = Vector2(1295, -3945)
+
+[node name="Cloud16" parent="music/Clouds" instance=ExtResource("45_0n3wm")]
+position = Vector2(2050, -2485)
+
+[node name="Sprite2D" parent="music/Clouds/Cloud16" index="0"]
+frame = 7
 
 [connection signal="timeout" from="Snake/Timer" to="Snake" method="_on_timer_timeout"]
 
@@ -3206,24 +3206,24 @@ metadata/music = [false, false, false, false, false, true, false]
 [editable path="Ladders/Ladder59"]
 [editable path="Ladders/Ladder26"]
 [editable path="Ladders/Ladder37"]
-[editable path="Clouds/Cloud"]
-[editable path="Clouds/Cloud2"]
-[editable path="Clouds/Cloud3"]
-[editable path="Clouds/Cloud4"]
-[editable path="Clouds/Cloud5"]
-[editable path="Clouds/Cloud7"]
-[editable path="Clouds/Cloud6"]
-[editable path="Clouds/Cloud8"]
-[editable path="Clouds/Cloud21"]
-[editable path="Clouds/Cloud9"]
-[editable path="Clouds/Cloud17"]
-[editable path="Clouds/Cloud18"]
-[editable path="Clouds/Cloud19"]
-[editable path="Clouds/Cloud20"]
-[editable path="Clouds/Cloud10"]
-[editable path="Clouds/Cloud11"]
-[editable path="Clouds/Cloud12"]
-[editable path="Clouds/Cloud13"]
-[editable path="Clouds/Cloud14"]
-[editable path="Clouds/Cloud15"]
-[editable path="Clouds/Cloud16"]
+[editable path="music/Clouds/Cloud"]
+[editable path="music/Clouds/Cloud2"]
+[editable path="music/Clouds/Cloud3"]
+[editable path="music/Clouds/Cloud4"]
+[editable path="music/Clouds/Cloud5"]
+[editable path="music/Clouds/Cloud7"]
+[editable path="music/Clouds/Cloud6"]
+[editable path="music/Clouds/Cloud8"]
+[editable path="music/Clouds/Cloud21"]
+[editable path="music/Clouds/Cloud9"]
+[editable path="music/Clouds/Cloud17"]
+[editable path="music/Clouds/Cloud18"]
+[editable path="music/Clouds/Cloud19"]
+[editable path="music/Clouds/Cloud20"]
+[editable path="music/Clouds/Cloud10"]
+[editable path="music/Clouds/Cloud11"]
+[editable path="music/Clouds/Cloud12"]
+[editable path="music/Clouds/Cloud13"]
+[editable path="music/Clouds/Cloud14"]
+[editable path="music/Clouds/Cloud15"]
+[editable path="music/Clouds/Cloud16"]
