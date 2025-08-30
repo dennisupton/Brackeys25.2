@@ -11,8 +11,8 @@ var originalPosition = Vector2.ZERO
 var nextPosition = Vector2.ZERO
 var originalRotation = 0
 var nextRotation = 0
-var supported = false
-var supportedBefore = false
+var supported = true
+var supportedBefore = true
 var lastSupported = Vector2.ZERO
 var positionChange = Vector2.ZERO
 var part = preload("res://part.tscn")
@@ -25,7 +25,7 @@ var debug = false
 var falling = false
 var cookiesEaten = 0
 var cutsceneIdx = 0
-var freeze = false
+@export var freeze = true
 func _physics_process(_delta: float) -> void:
 	#$"../Lava".position.y -= 0.4
 	if $lavacheck.is_colliding()  and $lavacheck.get_collider() and $lavacheck.get_collider().is_in_group("Lava"):
