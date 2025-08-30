@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://b0avwn5kyyd5w"
-path="res://.godot/imported/RocksCrumble.wav-6d5d0775871001f0669125519dccf770.sample"
+uid="uid://hqe55rt13y0c"
+path="res://.godot/imported/CliffCrumble.wav-8275cabe75af6b545f26825afaa95d9b.sample"
 
 [deps]
 
-source_file="res://SFX/RocksCrumble.wav"
-dest_files=["res://.godot/imported/RocksCrumble.wav-6d5d0775871001f0669125519dccf770.sample"]
+source_file="res://SFX/CliffCrumble.wav"
+dest_files=["res://.godot/imported/CliffCrumble.wav-8275cabe75af6b545f26825afaa95d9b.sample"]
 
 [params]
 
