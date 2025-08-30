@@ -22,6 +22,7 @@ colors = PackedColorArray(0.141176, 0.623529, 0.870588, 1, 0.12549, 0.839216, 0.
 
 [node name="aura" type="CPUParticles2D"]
 emitting = false
+amount = 5
 texture = SubResource("GradientTexture1D_0rl1p")
 lifetime = 0.5
 one_shot = true
@@ -36,7 +37,7 @@ angular_velocity_min = -337.3
 angular_velocity_max = 291.89
 damping_max = 14.582
 scale_amount_min = 8.0
-scale_amount_max = 19.24
+scale_amount_max = 20.0
 scale_amount_curve = SubResource("Curve_4lmeg")
 color_ramp = SubResource("Gradient_sueuc")
 color_initial_ramp = SubResource("Gradient_46xng")
