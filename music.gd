@@ -2,21 +2,15 @@ extends Node2D
 
 
 var lastPlay = 0
+var currentList
 
 #10660 ms every loop
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	currentList = $"1".get_meta("music")
 	lastPlay = Time.get_ticks_msec()
-	$SimpleDrums.playing = true
-	$Drums.playing = true
-	$Bass.playing = true
-	$CounterMelody.playing = true
-	$Chords.playing = true
-	$Melody.playing = true
-	$Violin.playing = true
-	setMusicToList($"9".get_meta("music"))
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -30,35 +24,33 @@ func CheckMusic():
 		var snakePos = $"../Snake".global_position
 		print(str(snakePos.y) + " " + str($"9".global_position.y))
 		if snakePos.y < $"9".global_position.y:
-			setMusicToList($"9".get_meta("music"))
+			currentList = $"9".get_meta("music")
 			return
 		elif snakePos.y < $"8".global_position.y:
-			setMusicToList($"8".get_meta("music"))
+			currentList = $"8".get_meta("music")
 			return
 		elif snakePos.y < $"7".global_position.y:
-			setMusicToList($"7".get_meta("music"))
+			currentList = $"7".get_meta("music")
 			return
 		elif snakePos.y < $"6".global_position.y:
-			setMusicToList($"6".get_meta("music"))
+			currentList = $"6".get_meta("music")
 			return
 		elif snakePos.y < $"5".global_position.y:
-			setMusicToList($"5".get_meta("music"))
+			currentList = $"5".get_meta("music")
 			return
 		elif snakePos.y < $"4".global_position.y:
-			setMusicToList($"4".get_meta("music"))
+			currentList = $"4".get_meta("music")
 			return
 		elif snakePos.y < $"3".global_position.y:
-			setMusicToList($"3".get_meta("music"))
+			currentList = $"3".get_meta("music")
 			return
 		elif snakePos.y < $"2".global_position.y:
-			setMusicToList($"2".get_meta("music"))
-			print("2")
+			currentList = $"2".get_meta("music")
 			return
 		elif snakePos.y < $"1".global_position.y:
-			setMusicToList($"1".get_meta("music"))
-			print("1")
+			currentList = $"1".get_meta("music")
 			return
-		print("none")
+	setMusicToList(currentList)
 
 
 
