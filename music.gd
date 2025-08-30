@@ -30,7 +30,7 @@ func CheckMusic():
 	if (Time.get_ticks_msec() - lastPlay) > (21333.333333):
 		lastPlay = Time.get_ticks_msec()
 		var snakePos = $"../Snake".global_position
-		print(str(snakePos.y) + " " + str($"9".global_position.y))
+		#print(str(snakePos.y) + " " + str($"9".global_position.y))
 		if snakePos.y < $"9".global_position.y:
 			currentList = $"9".get_meta("music")
 			return
@@ -61,7 +61,7 @@ func CheckMusic():
 	setMusicToList(currentList)
 
 func setMusicToList(list):
-	print(list)
+	#print(list)
 	$SimpleDrums.stream_paused =! list[0]
 	$Drums.stream_paused = !list[1]
 	$Bass.stream_paused = !list[2]
