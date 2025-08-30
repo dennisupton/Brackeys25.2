@@ -237,6 +237,7 @@ func _on_timer_timeout() -> void:
 		$"../Camera2D".shake()
 		freeze = true
 		cutsceneIdx = 1
+		$"../LedgeAnim/CliffCrumble".play()
 		$Timer.start()
 	else:
 		falling = true
