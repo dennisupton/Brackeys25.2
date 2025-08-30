@@ -3133,6 +3133,36 @@ metadata/music = [false, true, true, true, true, true, true]
 position = Vector2(-310, -5840)
 metadata/music = [false, false, false, false, false, true, false]
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.0
+offset_top = -20.0
+offset_right = 56.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/CenterContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="CanvasLayer/Control/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "back to game
+"
+
 [connection signal="timeout" from="Snake/Timer" to="Snake" method="_on_timer_timeout"]
 
 [editable path="FallingBlocks/FallingBlock"]

@@ -24,7 +24,7 @@ var movedLastFrame = false
 var debug = false
 var falling = false
 var cookiesEaten = 0
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	#$"../Lava".position.y -= 0.4
 	if $lavacheck.is_colliding()  and $lavacheck.get_collider() and $lavacheck.get_collider().is_in_group("Lava"):
 		get_tree().reload_current_scene()
@@ -36,7 +36,7 @@ func _physics_process(delta: float) -> void:
 	moved = false
 	positionChange = Vector2.ZERO
 	originalPosition = global_position
-	var originalRotation = $Sprite2D.rotation_degrees
+	originalRotation = $Sprite2D.rotation_degrees
 	if  Input.is_action_just_pressed("debug"):
 		if debug:
 			debug = false

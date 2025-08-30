@@ -10,7 +10,7 @@ func _ready() -> void:
 	moveAmount = rng.randf_range(-0.2, 0.2)
 	moveMagnitude = rng.randf_range(0.35, 0.5)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	var position = $/root/main/Camera2D.position
 	if (position != oldPosition):
 		var direction = (position - oldPosition) * moveMagnitude

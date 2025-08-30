@@ -16,7 +16,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	$Sprite2D.position = lerp($Sprite2D.position, orpos + Vector2(rand.randf_range(-3.0,3.0),rand.randf_range(-3.0,3.0)),float($Sprite2D.frame-orFrame)/8)
 	if strength < startStrength:
 		strength += 1

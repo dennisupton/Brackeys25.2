@@ -7,7 +7,7 @@ func _ready() -> void:
 	return
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	var sum = Vector2.ZERO
 	sum += $"../Snake".position
 	for i in $"../body".get_children():
