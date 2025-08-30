@@ -9,8 +9,16 @@ var currentList
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	currentList = $"1".get_meta("music")
+	$SimpleDrums.playing = true	
+	$Drums.playing = true	
+	$Bass.playing = true	
+	$CounterMelody.playing = true	
+	$Chords.playing = true	
+	$Melody.playing = true	
+	$Violin.playing = true	
+	currentList = $"9".get_meta("music")
 	lastPlay = Time.get_ticks_msec()
+	setMusicToList(currentList)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -52,27 +60,12 @@ func CheckMusic():
 			return
 	setMusicToList(currentList)
 
-
-
 func setMusicToList(list):
-	if (list[0] && !$SimpleDrums.playing):
-		$SimpleDrums.playing = true
-	$SimpleDrums.stream_paused = !list[0]
-	if (list[1] && !$Drums.playing):
-		$Drums.playing = true
+	print(list)
+	$SimpleDrums.stream_paused =! list[0]
 	$Drums.stream_paused = !list[1]
-	if (list[2] && !$Bass.playing):
-		$Bass.playing = true
 	$Bass.stream_paused = !list[2]
-	if (list[3] && !$CounterMelody.playing):
-		$CounterMelody.playing = true
-	$CounterMelody.stream_paused = !list[3] 
-	if (list[4] && !$Chords.playing):
-		$Chords.playing = true
+	$CounterMelody.stream_paused = !list[3]
 	$Chords.stream_paused = !list[4]
-	if (list[5] && !$Melody.playing):
-		$Melody.playing = true
 	$Melody.stream_paused = !list[5]
-	if (list[6] && !$Violin.playing):
-		$Violin.playing = true
 	$Violin.stream_paused = !list[6]
