@@ -24,6 +24,8 @@ var movedLastFrame = false
 var debug = false
 var falling = false
 var cookiesEaten = 0
+var cutsceneIdx = 0
+var freeze = false
 func _physics_process(_delta: float) -> void:
 	#$"../Lava".position.y -= 0.4
 	if $lavacheck.is_colliding()  and $lavacheck.get_collider() and $lavacheck.get_collider().is_in_group("Lava"):
@@ -42,7 +44,7 @@ func _physics_process(_delta: float) -> void:
 			debug = false
 		else:
 			debug = true
-	if (Time.get_ticks_msec()-lastMove > movementCooldownHold and movedLastFrame == true and supported):
+	if (Time.get_ticks_msec()-lastMove > movementCooldownHold and movedLastFrame == true and supported) and !freeze:
 		if Input.is_action_pressed("ui_up") and canMoveUp():
 			positionChange.y -= 40
 			$Sprite2D.rotation_degrees = 0
@@ -59,7 +61,7 @@ func _physics_process(_delta: float) -> void:
 			positionChange.x += 40
 			$Sprite2D.rotation_degrees = 90
 			moved = true
-	elif (Time.get_ticks_msec()-lastMove > movementCooldownTap and supported):
+	elif (Time.get_ticks_msec()-lastMove > movementCooldownTap and supported) and !freeze:
 		if Input.is_action_just_pressed("ui_up") and canMoveUp():
 			positionChange.y -= 40
 			$Sprite2D.rotation_degrees = 0
@@ -231,4 +233,14 @@ func grow(pos,rot):
 
 
 func _on_timer_timeout() -> void:
-	falling = true
+	if cutsceneIdx == 0:
+		$"../Camera2D".shake()
+		freeze = true
+		cutsceneIdx = 1
+		$Timer.start()
+	else:
+		falling = true
+		freeze = false
+		$"../Camera2D".shake()
+		$"../LedgeAnim".play()
+		$"../ParentAnim".play("Rescue")

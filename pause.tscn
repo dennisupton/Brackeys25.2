@@ -46,3 +46,6 @@ text = "Back"
 [node name="Restart" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
 text = "Restart"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Restart" to="." method="_on_restart_pressed"]

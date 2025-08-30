@@ -2086,8 +2086,29 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("54_rm4vd")
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
 }],
-"loop": true,
+"loop": false,
 "name": &"default",
 "speed": 10.0
 }]
@@ -2150,6 +2171,33 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("68_4obbf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("69_ovcoh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("69_ovcoh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("69_ovcoh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("69_ovcoh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("69_ovcoh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("69_ovcoh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("69_ovcoh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("69_ovcoh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("69_ovcoh")
 }, {
 "duration": 1.0,
 "texture": ExtResource("69_ovcoh")
@@ -2337,7 +2385,7 @@ amount = 8
 scale_amount_max = 19.24
 
 [node name="Timer" type="Timer" parent="Snake"]
-wait_time = 0.2
+wait_time = 1.5
 one_shot = true
 
 [node name="fallRock" type="CPUParticles2D" parent="Snake"]
@@ -3356,16 +3404,13 @@ camera_attributes = SubResource("CameraAttributesPractical_gngh3")
 position = Vector2(280, -5720)
 scale = Vector2(8, 8)
 sprite_frames = SubResource("SpriteFrames_pjyto")
-frame = 8
-frame_progress = 0.334224
 
 [node name="ParentAnim" type="AnimatedSprite2D" parent="."]
 position = Vector2(-296, -6060)
 scale = Vector2(-8, 8)
 sprite_frames = SubResource("SpriteFrames_ppx11")
-animation = &"Calm"
-frame = 2
-frame_progress = 0.849367
+animation = &"Rescue"
+autoplay = "Calm"
 
 [connection signal="timeout" from="Snake/Timer" to="Snake" method="_on_timer_timeout"]
 
