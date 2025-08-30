@@ -187,6 +187,7 @@ func canMove(pos):
 	if $moveCheck.is_colliding() and  $moveCheck.get_collider().is_in_group("cookie"):
 		if $moveCheck.get_collider().is_in_group("badCookie"):
 			$Timer.start()
+			freeze = true
 		else:
 			$moveCheck.get_collider().queue_free()
 			grow(nextPosition,nextRotation)
@@ -235,9 +236,8 @@ func grow(pos,rot):
 func _on_timer_timeout() -> void:
 	if cutsceneIdx == 0:
 		$"../Camera2D".shake()
-		freeze = true
 		cutsceneIdx = 1
-		$"../LedgeAnim/CliffCrumble".play()
+		$"../LedgeAnim/CliffCrack".play()
 		$Timer.start()
 	else:
 		falling = true
@@ -245,4 +245,5 @@ func _on_timer_timeout() -> void:
 		$"../Camera2D".shake()
 		$"../LedgeAnim".play()
 		$"../ParentAnim".play("Rescue")
+		$"../LedgeAnim/CliffBreak".play()
 		$"../Wall2TemporaryWall".add_to_group("Ledge")
