@@ -3,6 +3,7 @@ extends Node2D
 
 var lastPlay = 0
 var currentList
+var oldList
 
 #10660 ms every loop
 
@@ -19,6 +20,7 @@ func _ready() -> void:
 	currentList = $"9".get_meta("music")
 	lastPlay = Time.get_ticks_msec()
 	setMusicToList(currentList)
+	oldList = currentList
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -62,6 +64,9 @@ func CheckMusic():
 
 func setMusicToList(list):
 	#print(list)
+	if (oldList != null):
+		if (oldList == currentList):
+			return
 	$SimpleDrums.stream_paused =! list[0]
 	$Drums.stream_paused = !list[1]
 	$Bass.stream_paused = !list[2]
@@ -69,3 +74,4 @@ func setMusicToList(list):
 	$Chords.stream_paused = !list[4]
 	$Melody.stream_paused = !list[5]
 	$Violin.stream_paused = !list[6]
+	oldList = list
