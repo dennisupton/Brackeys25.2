@@ -9,7 +9,7 @@ size = Vector2(40, 40)
 
 [node name="Ladder" type="StaticBody2D" parent="." groups=["Ladder"]]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ladder" groups=["Ladder"]]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ladder"]
 position = Vector2(20, 20)
 shape = SubResource("RectangleShape2D_1j01k")
 

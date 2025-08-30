@@ -100,7 +100,9 @@ func _physics_process(delta: float) -> void:
 	$groundCheck.force_raycast_update()
 
 	if $groundCheck.is_colliding() and !$groundCheck.get_collider().is_in_group("cookie"):
-		if !supportedBefore:
+		if !supportedBefore and !falling:
+			if float(lastSupported.distance_to(position))/40 > 4:
+				$"../Camera2D".shake()
 			if $groundCheck.get_collider().is_in_group("Rock"):
 				$rockFall.play()
 				$fallRock.emitting = true
@@ -119,14 +121,15 @@ func _physics_process(delta: float) -> void:
 		if $"../body".get_child(i).get_child(1).is_colliding() and !$"../body".get_child(i).get_child(1).get_collider().is_in_group("cookie") and !falling:
 			if $"../body".get_child(i).get_child(1).get_collider().is_in_group("Fall"):
 				$"../body".get_child(i).get_child(1).get_collider().hit()
-			if !supportedBefore:
-				
-				if $"../body".get_child(i).get_child(1).get_collider().is_in_group("Rock") and falling:
-					$rockFall.volume_db = -35.0 + float(lastSupported.distance_to(position))/40
+			if !supportedBefore and !falling:
+				if float(lastSupported.distance_to(position))/40 > 4:
+					$"../Camera2D".shake()
+				if $"../body".get_child(i).get_child(1).get_collider().is_in_group("Rock"):
+					$rockFall.volume_db = -10.0 + float(lastSupported.distance_to(position))/800
 					$rockFall.play()
 					$"../body".get_child(i).get_child(2).emitting = true
 				elif falling:
-					$grassFall.volume_db = -35.0 + float(lastSupported.distance_to(position))/40
+					$grassFall.volume_db = -10.0 + float(lastSupported.distance_to(position))/800
 					$grassFall.play()
 					$"../body".get_child(i).get_child(3).emitting = true
 			supported = true
@@ -166,6 +169,9 @@ func _physics_process(delta: float) -> void:
 				originalRotation = nextRotation
 				nextRotation = $"../body".get_child(i).get_child(0).global_rotation_degrees
 				$"../body".get_child(i).get_child(0).global_rotation_degrees = originalRotation
+		var child = aura.instantiate()
+		child.position = nextPosition
+		$"..".add_child(child)
 		$"../body".get_child($"../body".get_child_count()-1).get_child(0).global_rotation_degrees = $"../body".get_child($"../body".get_child_count()-2).get_child(0).global_rotation_degrees
 func canMove(pos):
 	if debug:

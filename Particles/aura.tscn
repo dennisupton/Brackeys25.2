@@ -1,4 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://es0grsd376on"]
+[gd_scene load_steps=5 format=3 uid="uid://es0grsd376on"]
+
+[ext_resource type="Script" uid="uid://cgifit4k5fcwj" path="res://Particles/aura.gd" id="1_rdk2e"]
 
 [sub_resource type="Gradient" id="Gradient_4k2k6"]
 offsets = PackedFloat32Array(1)
@@ -29,3 +31,6 @@ damping_max = 14.582
 scale_amount_min = 8.0
 scale_amount_max = 8.0
 scale_amount_curve = SubResource("Curve_4lmeg")
+script = ExtResource("1_rdk2e")
+
+[connection signal="finished" from="." to="." method="_on_finished"]
