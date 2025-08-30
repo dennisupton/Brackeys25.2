@@ -1,9 +1,24 @@
-[gd_scene load_steps=6 format=3 uid="uid://dnb8yqs22wf5o"]
+[gd_scene load_steps=10 format=3 uid="uid://dnb8yqs22wf5o"]
 
 [ext_resource type="Texture2D" uid="uid://eigpdpj11dfq" path="res://Sprites/Cookies.png" id="1_7gt2p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t68xm"]
 size = Vector2(40, 40)
+
+[sub_resource type="Gradient" id="Gradient_1vm84"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_7gt2p"]
+gradient = SubResource("Gradient_1vm84")
+width = 1
+
+[sub_resource type="Curve" id="Curve_t68xm"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.993631, 0), -3.08708, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_672qt"]
+colors = PackedColorArray(0.858824, 0.643137, 0.388235, 1, 0.996813, 0.88229, 0.705612, 1)
 
 [sub_resource type="Animation" id="Animation_t68xm"]
 length = 0.001
@@ -51,7 +66,31 @@ _data = {
 position = Vector2(20, 20)
 shape = SubResource("RectangleShape2D_t68xm")
 
+[node name="fallRock" type="CPUParticles2D" parent="cookie"]
+physics_interpolation_mode = 1
+z_index = 1
+position = Vector2(20, 20)
+amount = 6
+texture = SubResource("GradientTexture1D_7gt2p")
+lifetime = 2.0
+emission_shape = 3
+emission_rect_extents = Vector2(22, 1)
+direction = Vector2(0, -1)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 50.0
+initial_velocity_max = 100.0
+angular_velocity_min = -194.16
+angular_velocity_max = 194.16
+damping_min = 62.613
+damping_max = 62.613
+scale_amount_min = 10.0
+scale_amount_max = 20.0
+scale_amount_curve = SubResource("Curve_t68xm")
+color_initial_ramp = SubResource("Gradient_672qt")
+
 [node name="Sprite2D" type="Sprite2D" parent="cookie"]
+z_index = 2
 position = Vector2(20, 20)
 scale = Vector2(8, 8)
 texture = ExtResource("1_7gt2p")

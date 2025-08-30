@@ -101,7 +101,7 @@ func _physics_process(_delta: float) -> void:
 	supported = false
 	$groundCheck.force_raycast_update()
 
-	if $groundCheck.is_colliding() and !$groundCheck.get_collider().is_in_group("cookie"):
+	if $groundCheck.is_colliding() and !$groundCheck.get_collider().is_in_group("cookie") and !$groundCheck.get_collider().is_in_group("Ledge"):
 		if !supportedBefore and !falling:
 			if float(lastSupported.distance_to(position))/40 > 4:
 				$"../Camera2D".shake()
@@ -120,7 +120,7 @@ func _physics_process(_delta: float) -> void:
 			falling = false
 	for i in $"../body".get_child_count():
 		$"../body".get_child(i).get_child(1).force_raycast_update()
-		if $"../body".get_child(i).get_child(1).is_colliding() and !$"../body".get_child(i).get_child(1).get_collider().is_in_group("cookie") and !falling:
+		if $"../body".get_child(i).get_child(1).is_colliding() and !$"../body".get_child(i).get_child(1).get_collider().is_in_group("cookie") and !$"../body".get_child(i).get_child(1).get_collider().is_in_group("Ledge") and !falling:
 			if $"../body".get_child(i).get_child(1).get_collider().is_in_group("Fall"):
 				$"../body".get_child(i).get_child(1).get_collider().hit()
 			if !supportedBefore and !falling:
@@ -244,3 +244,4 @@ func _on_timer_timeout() -> void:
 		$"../Camera2D".shake()
 		$"../LedgeAnim".play()
 		$"../ParentAnim".play("Rescue")
+		$"../Wall2TemporaryWall".add_to_group("Ledge")
