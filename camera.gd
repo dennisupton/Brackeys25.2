@@ -14,7 +14,7 @@ func _process(_delta: float) -> void:
 		sum += i.global_position
 	var average = sum/($"../body".get_child_count()+1)
 	position = lerp(position,average,0.05)
-	position = lerp(position, position + Vector2(rand.randf_range(-3.0,3.0),rand.randf_range(-3.0,3.0)),$Timer.time_left*4)
+	position = lerp(position, position + Vector2(rand.randf_range(-3.0,3.0),rand.randf_range(-3.0,3.0)),$Timer.time_left*10)
 
 func shake():
 	shaking = true

@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://b4atw4l1tytx4"]
+[gd_scene load_steps=4 format=3 uid="uid://b4atw4l1tytx4"]
 
 [ext_resource type="Shader" uid="uid://cuqi2l4qlnl2y" path="res://blur.gdshader" id="1_45vjg"]
+[ext_resource type="Script" uid="uid://dfrkkl0wnsuac" path="res://pause.gd" id="1_aq7p1"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_aq7p1"]
 shader = ExtResource("1_45vjg")
@@ -9,12 +10,14 @@ shader_parameter/lod = 2
 shader_parameter/tint_color = Color(0, 0, 0, 0.164706)
 
 [node name="Pause" type="Control"]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_aq7p1")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_aq7p1")
