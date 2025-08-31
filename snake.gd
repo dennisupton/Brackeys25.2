@@ -42,7 +42,6 @@ func _physics_process(_delta: float) -> void:
 	if nextBlink < 0:
 		nextBlink = rand.randi_range(100,500)
 		$Sprite2D/Sprite2D2.play()
-	#$"../Lava".position.y -= 0.4
 	if $lavacheck.is_colliding()  and $lavacheck.get_collider() and $lavacheck.get_collider().is_in_group("Lava"):
 		get_tree().reload_current_scene()
 	if $lavacheck.is_colliding() and $lavacheck.get_collider() and  $lavacheck.get_collider().is_in_group("cookie"):
