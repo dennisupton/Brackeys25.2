@@ -31,7 +31,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	isStart += 1
-	if isStart < 50:
+	if isStart < 20:
 		$SimpleDrums.stream_paused = true
 		$Drums.stream_paused =  true
 		$Bass.stream_paused =  true

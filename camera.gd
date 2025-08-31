@@ -4,10 +4,18 @@ var rand = RandomNumberGenerator.new()
 var shaking = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	return
-
+	get_tree().paused = true
+	AudioServer.set_bus_volume_db(1, -90)
+	$Logo.show()
 
 func _process(_delta: float) -> void:
+	if  $Logo.frame == 14 and $Logo.visible:
+		$Logo.hide()
+		get_tree().paused = false
+	elif $Logo.visible:
+		AudioServer.set_bus_volume_db(1, -90)
+	else:
+		AudioServer.set_bus_volume_db(1, -10)
 	var sum = Vector2.ZERO
 	sum += $"../Snake".position
 	for i in $"../body".get_children():
