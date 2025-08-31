@@ -1,7 +1,7 @@
 extends StaticBody2D
 
 var strength = 200
-@export var startStrength = 190
+@export var startStrength = 600
 var orFrame = 0
 var orpos= Vector2(0,0)
 var rand = RandomNumberGenerator.new()
@@ -35,6 +35,6 @@ func _process(_delta: float) -> void:
 			$CollisionShape2D.disabled = false
 
 func hit():
-	strength -= 5
+	strength -= 15
 	if !$break.playing:
 		$break.play()

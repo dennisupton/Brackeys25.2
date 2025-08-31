@@ -16,15 +16,15 @@ func _ready() -> void:
 	$Chords.stream_paused =  true
 	$Melody.stream_paused =  true
 	$Violin.stream_paused = true
-	$SimpleDrums.playing = true	
-	$Drums.playing = true	
-	$Bass.playing = true	
-	$CounterMelody.playing = true	
+	$SimpleDrums.playing = true
+	$Drums.playing = true
+	$Bass.playing = true
+	$CounterMelody.playing = true
 	$Chords.playing = true
 	$Melody.playing = true
 	$Violin.playing = true
 	currentList = $"9".get_meta("music")
-	lastPlay = Time.get_ticks_msec()+18000
+	lastPlay = Time.get_ticks_msec()
 	setMusicToList(currentList)
 
 
@@ -34,37 +34,38 @@ func _process(_delta: float) -> void:
 
 
 func CheckMusic():
-	lastPlay = Time.get_ticks_msec()
 	var snakePos = $"../Snake".global_position
+	if (Time.get_ticks_msec() - lastPlay) > (21333.333333):
 	#print(str(snakePos.y) + " " + str($"9".global_position.y))
-	if snakePos.y < $"9".global_position.y:
-		currentList = $"9".get_meta("music")
-	elif snakePos.y < $"8".global_position.y:
-		currentList = $"8".get_meta("music")
-	elif snakePos.y < $"7".global_position.y:
-		currentList = $"7".get_meta("music")
-	elif snakePos.y < $"6".global_position.y:
-		currentList = $"6".get_meta("music")
-	elif snakePos.y < $"5".global_position.y:
-		currentList = $"5".get_meta("music")
-	elif snakePos.y < $"4".global_position.y:
-		currentList = $"4".get_meta("music")
-	elif snakePos.y < $"3".global_position.y:
-		currentList = $"3".get_meta("music")
-	elif snakePos.y < $"2".global_position.y:
-		currentList = $"2".get_meta("music")
-	elif snakePos.y < $"1".global_position.y:
-		currentList = $"1".get_meta("music")
+		lastPlay = Time.get_ticks_msec()
+		if snakePos.y < $"9".global_position.y:
+			currentList = $"9".get_meta("music")
+		elif snakePos.y < $"8".global_position.y:
+			currentList = $"8".get_meta("music")
+		elif snakePos.y < $"7".global_position.y:
+			currentList = $"7".get_meta("music")
+		elif snakePos.y < $"6".global_position.y:
+			currentList = $"6".get_meta("music")
+		elif snakePos.y < $"5".global_position.y:
+			currentList = $"5".get_meta("music")
+		elif snakePos.y < $"4".global_position.y:
+			currentList = $"4".get_meta("music")
+		elif snakePos.y < $"3".global_position.y:
+			currentList = $"3".get_meta("music")
+		elif snakePos.y < $"2".global_position.y:
+			currentList = $"2".get_meta("music")
+		elif snakePos.y < $"1".global_position.y:
+			currentList = $"1".get_meta("music")
 	#if oldList == currentList:
 	#	print("music is correct")
 	#else:
 	#	print("music is incorrect")
-	if (Time.get_ticks_msec() - lastPlay) > (21333.333333):
-		setMusicToList(currentList)
+	
+	setMusicToList(currentList)
 
 func setMusicToList(list):
 	if oldList != list:
-		$SimpleDrums.stream_paused =! list[0]
+		$SimpleDrums.stream_paused = !list[0]
 		$Drums.stream_paused = !list[1]
 		$Bass.stream_paused = !list[2]
 		$CounterMelody.stream_paused = !list[3]

@@ -15,8 +15,8 @@ func _process(_delta: float) -> void:
 	if (position != oldPosition):
 		var direction = (position - oldPosition) * moveMagnitude
 		self.position += direction + (Vector2.RIGHT * moveAmount)
-	if (self.position.x < -2000):
-		self.position.x += 2000
-	if (self.position.x > 2000):
-		self.position.x -= 2000
+	if (self.position.x < -3000):
+		self.position.x += 3000
+	if (self.position.x > 3000):
+		self.position.x -= 3000
 	oldPosition = position
