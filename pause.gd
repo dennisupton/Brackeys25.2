@@ -9,8 +9,10 @@ func _process(_delta: float) -> void:
 		else:
 			$"../..".process_mode = Node.PROCESS_MODE_PAUSABLE
 	if Input.is_action_just_pressed("Reset") and !visible:
-		$"../../Snake".position = Vector2(300,260)
-		$"../../body".position = Vector2(635,-120)
+		var move = Vector2(300,100)-$"../../Snake".position
+		$"../../Snake".position = Vector2(300,100)
+		for i in $"../../body".get_children():
+			i.position += move
 
 func _on_back_pressed() -> void:
 	visible = !visible
@@ -24,8 +26,11 @@ func _on_back_pressed() -> void:
 
 
 func _on_restart_pressed() -> void:
-	$"../../Snake".position = Vector2(300,260)
-	$"../../body".position = Vector2(635,-120)
+	var move = Vector2(300,100)-$"../../Snake".position
+	$"../../Snake".position = Vector2(300,100)
+	for i in $"../../body".get_children():
+		i.position += move
+	
 	visible = !visible
 	if visible:
 		$"../..".process_mode = Node.PROCESS_MODE_DISABLED

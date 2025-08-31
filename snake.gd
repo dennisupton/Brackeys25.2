@@ -181,7 +181,7 @@ func canMove(pos):
 	for i in $"../body".get_child_count():
 		if pos == $"../body".get_child(i).global_position:
 			return true
-	if $moveCheck.is_colliding() and !$moveCheck.get_collider().is_in_group("Ladder") and !$moveCheck.get_collider().is_in_group("cookie"):
+	if $moveCheck.is_colliding() and !$moveCheck.get_collider().is_in_group("Ladder") and !$moveCheck.get_collider().is_in_group("cookie") and !$moveCheck.get_collider().is_in_group("Ledge"):
 		
 		return true
 	if $moveCheck.is_colliding() and  $moveCheck.get_collider().is_in_group("cookie"):
