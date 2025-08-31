@@ -35,6 +35,7 @@ func _ready() -> void:
 	$Melody.playing = true
 	$Violin.playing = true
 	currentList = $"9".get_meta("music")
+	oldList = $"1".get_meta("music")
 	lastPlay = Time.get_ticks_msec()
 	setMusicToList(currentList)
 

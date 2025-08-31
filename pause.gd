@@ -18,6 +18,7 @@ func _process(_delta: float) -> void:
 
 func _on_back_pressed() -> void:
 	visible = !visible
+	get_tree().paused = false
 
 
 
@@ -31,3 +32,4 @@ func _on_restart_pressed() -> void:
 		i.position += move
 	
 	visible = !visible
+	get_tree().paused = false
