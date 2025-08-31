@@ -35,6 +35,6 @@ func _process(_delta: float) -> void:
 			$CollisionShape2D.disabled = false
 
 func hit():
-	strength -= 15
+	strength -= 10
 	if !$break.playing:
 		$break.play()

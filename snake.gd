@@ -26,7 +26,22 @@ var falling = false
 var cookiesEaten = 0
 var cutsceneIdx = 0
 @export var freeze = true
+var nextToungue = 250
+var nextBlink = 300
 func _physics_process(_delta: float) -> void:
+	if position == Vector2(-60,-6300) and $"../body".get_child_count()>3 and !freeze:
+		freeze = true
+		$"../ParentAnim".play("End")
+		$"../Camera2D/Credits/AnimationPlayer".play("fade")
+	nextToungue -= 1
+	if nextToungue < 0:
+		nextToungue = rand.randi_range(100,500)
+		$Sprite2D/Sprite2D2/AnimatedSprite2D.play()
+		$Sprite2D/Sprite2D2/hiss.play()
+	nextBlink -= 1
+	if nextBlink < 0:
+		nextBlink = rand.randi_range(100,500)
+		$Sprite2D/Sprite2D2.play()
 	#$"../Lava".position.y -= 0.4
 	if $lavacheck.is_colliding()  and $lavacheck.get_collider() and $lavacheck.get_collider().is_in_group("Lava"):
 		get_tree().reload_current_scene()
@@ -44,6 +59,9 @@ func _physics_process(_delta: float) -> void:
 			debug = false
 		else:
 			debug = true
+			falling = false
+			$"../ParentAnim".animation = "End"
+			$"../ParentAnim".frame = 0
 	if (Time.get_ticks_msec()-lastMove > movementCooldownHold and movedLastFrame == true and supported) and !freeze:
 		if Input.is_action_pressed("ui_up") and canMoveUp():
 			positionChange.y -= 40
@@ -118,6 +136,8 @@ func _physics_process(_delta: float) -> void:
 		supported = false
 		if global_position.y > 110:
 			falling = false
+			$"../ParentAnim".animation = "End"
+			$"../ParentAnim".frame = 0
 	for i in $"../body".get_child_count():
 		$"../body".get_child(i).get_child(1).force_raycast_update()
 		if $"../body".get_child(i).get_child(1).is_colliding() and !$"../body".get_child(i).get_child(1).get_collider().is_in_group("cookie") and !$"../body".get_child(i).get_child(1).get_collider().is_in_group("Ledge") and !falling:
@@ -141,12 +161,16 @@ func _physics_process(_delta: float) -> void:
 		supported = false
 		if global_position.y > 110:
 			falling = false
+			$"../ParentAnim".animation = "End"
+			$"../ParentAnim".frame = 0
+			
 	if !supported:
 		#position += Vector2(0,10)
 		position = lerp(position,position + Vector2(0,40),0.3)
 		for i in $"../body".get_children():
 			#i.position += Vector2(0,40)
 			i.position = lerp(i.position,i.position + Vector2(0,40),0.3)
+			
 	else:
 		lastSupported = position
 		#position.x = (round((position.x)/40)*40)
@@ -155,7 +179,13 @@ func _physics_process(_delta: float) -> void:
 			#i.position += Vector2(0,40)
 			#i.position.x = (round((i.position.x)/40)*40)
 			i.position.y = (round((i.position.y+20)/40)*40)-20
-		
+	if float(lastSupported.distance_to(position))/40 > 10:
+		if !$falling.playing:
+			$falling.play()
+			print("play")
+	elif $falling.playing:
+		$falling.stop()
+		print("stop")
 		
 	if moved:
 		for i in $"../body".get_child_count():

@@ -5,8 +5,19 @@ var lastPlay = 0
 var currentList
 
 #10660 ms every loop
+func pause():
+	return
+	$SimpleDrums.stream_paused = true
+	$Drums.stream_paused =  true
+	$Bass.stream_paused =  true
+	$CounterMelody.stream_paused = true
+	$Chords.stream_paused =  true
+	$Melody.stream_paused =  true
+	$Violin.stream_paused = true
 
-
+func play():
+	return
+	setMusicToList(currentList)
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$SimpleDrums.stream_paused = true
