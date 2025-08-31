@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b4atw4l1tytx4"]
+[gd_scene load_steps=14 format=3 uid="uid://b4atw4l1tytx4"]
 
 [ext_resource type="Shader" uid="uid://cuqi2l4qlnl2y" path="res://blur.gdshader" id="1_45vjg"]
 [ext_resource type="Script" uid="uid://dfrkkl0wnsuac" path="res://pause.gd" id="1_aq7p1"]
@@ -9,6 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://c3ixuqk61ul1g" path="res://Sprites/ResetButton2.png" id="5_u063c"]
 [ext_resource type="Texture2D" uid="uid://b38ursrrdp61r" path="res://Sprites/ResumeButton1.png" id="6_u063c"]
 [ext_resource type="Texture2D" uid="uid://cme5jiyruq2p5" path="res://Sprites/ResumeButton3.png" id="10_m0a22"]
+[ext_resource type="AudioStream" uid="uid://b0bssls1v77v3" path="res://SFX/click.mp3" id="10_w2ufp"]
+[ext_resource type="AudioStream" uid="uid://cak0bpqtw16oc" path="res://SFX/menu_open.mp3" id="11_21xor"]
+[ext_resource type="AudioStream" uid="uid://q4kjh7sofen8" path="res://SFX/menu_close.mp3" id="12_a1xvq"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_aq7p1"]
 shader = ExtResource("1_45vjg")
@@ -58,12 +61,24 @@ texture_hover = ExtResource("4_05lnj")
 layout_mode = 2
 
 [node name="Restart" type="TextureButton" parent="CenterContainer/VBoxContainer/CenterContainer"]
+visible = false
 custom_minimum_size = Vector2(87.67, 28.915)
 layout_mode = 2
 theme = ExtResource("3_56vcw")
 texture_normal = ExtResource("3_6eyaj")
 texture_pressed = ExtResource("5_jg8ls")
 texture_hover = ExtResource("5_u063c")
+
+[node name="click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_w2ufp")
+
+[node name="open" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_21xor")
+volume_db = 14.991
+
+[node name="close" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_a1xvq")
+volume_db = 9.369
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/CenterContainer/Restart" to="." method="_on_restart_pressed"]

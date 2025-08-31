@@ -54,6 +54,7 @@ func _physics_process(_delta: float) -> void:
 	originalPosition = global_position
 	originalRotation = $Sprite2D.rotation_degrees
 	if  Input.is_action_just_pressed("debug"):
+		$debug.play()
 		if debug:
 			debug = false
 		else:
@@ -181,10 +182,8 @@ func _physics_process(_delta: float) -> void:
 	if float(lastSupported.distance_to(position))/40 > 10:
 		if !$falling.playing:
 			$falling.play()
-			print("play")
 	elif $falling.playing:
 		$falling.stop()
-		print("stop")
 		
 	if moved:
 		for i in $"../body".get_child_count():

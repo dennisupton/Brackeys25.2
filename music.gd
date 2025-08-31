@@ -3,21 +3,9 @@ extends Node2D
 var oldList
 var lastPlay = 0
 var currentList
+var isStart = 0
 
-#10660 ms every loop
-func pause():
-	return
-	$SimpleDrums.stream_paused = true
-	$Drums.stream_paused =  true
-	$Bass.stream_paused =  true
-	$CounterMelody.stream_paused = true
-	$Chords.stream_paused =  true
-	$Melody.stream_paused =  true
-	$Violin.stream_paused = true
 
-func play():
-	return
-	setMusicToList(currentList)
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$SimpleDrums.stream_paused = true
@@ -42,12 +30,21 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
+	isStart += 1
+	if isStart < 50:
+		$SimpleDrums.stream_paused = true
+		$Drums.stream_paused =  true
+		$Bass.stream_paused =  true
+		$CounterMelody.stream_paused = true
+		$Chords.stream_paused =  true
+		$Melody.stream_paused =  true
+		$Violin.stream_paused = true
 	CheckMusic()
 
 
 func CheckMusic():
 	var snakePos = $"../Snake".global_position
-	if (Time.get_ticks_msec() - lastPlay) > (21333.333333):
+	if (Time.get_ticks_msec() - lastPlay) > (21333.333333) or isStart <50:
 	#print(str(snakePos.y) + " " + str($"9".global_position.y))
 		lastPlay = Time.get_ticks_msec()
 		if snakePos.y < $"9".global_position.y:
