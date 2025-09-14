@@ -2,8 +2,7 @@ extends Control
 
 
 func _process(_delta: float) -> void:
-	if $CenterContainer/VBoxContainer/CheckButton.button_pressed:
-		$"../../Speedrun".show()
+	$"../Speedrun".visible = $CenterContainer/VBoxContainer/CheckButton.button_pressed
 	if Input.is_action_just_pressed("Esc"):
 		if $"../../body".get_child_count()>=2:
 			$CenterContainer/VBoxContainer/CenterContainer/Restart.show()
@@ -17,8 +16,8 @@ func _process(_delta: float) -> void:
 			get_tree().paused = false
 			AudioServer.set_bus_volume_db(1, lerp(AudioServer.get_bus_volume_db(1),0.0,0.4))
 	if Input.is_action_just_pressed("Reset") and !visible and $"../../body".get_child_count()>=2:
-		var move = Vector2(260,100)-$"../../Snake".position
-		$"../../Snake".position = Vector2(260,100)
+		var move = Vector2(220,100)-$"../../Snake".position
+		$"../../Snake".position = Vector2(220,100)
 		for i in $"../../body".get_children():
 			i.position += move
 

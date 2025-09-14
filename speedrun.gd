@@ -19,4 +19,4 @@ func stop():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if running:
-		text =str(( Time.get_ticks_msec()-start)/1000.0)
+		text =str(round(( Time.get_ticks_msec()-start)/100.0)/10)

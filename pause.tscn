@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b4atw4l1tytx4"]
+[gd_scene load_steps=18 format=3 uid="uid://b4atw4l1tytx4"]
 
 [ext_resource type="Shader" uid="uid://cuqi2l4qlnl2y" path="res://blur.gdshader" id="1_45vjg"]
 [ext_resource type="Script" uid="uid://dfrkkl0wnsuac" path="res://pause.gd" id="1_aq7p1"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://nmpffv28vi70" path="res://Sprites/ResetButton3.png" id="5_jg8ls"]
 [ext_resource type="Texture2D" uid="uid://c3ixuqk61ul1g" path="res://Sprites/ResetButton2.png" id="5_u063c"]
 [ext_resource type="Texture2D" uid="uid://b38ursrrdp61r" path="res://Sprites/ResumeButton1.png" id="6_u063c"]
+[ext_resource type="FontFile" uid="uid://cxqe2jngc3x6i" path="res://Particles/Pixeboy-z8XGD.ttf" id="7_a1xvq"]
 [ext_resource type="Texture2D" uid="uid://cme5jiyruq2p5" path="res://Sprites/ResumeButton3.png" id="10_m0a22"]
 [ext_resource type="AudioStream" uid="uid://b0bssls1v77v3" path="res://SFX/click.mp3" id="10_w2ufp"]
 [ext_resource type="AudioStream" uid="uid://cak0bpqtw16oc" path="res://SFX/menu_open.mp3" id="11_21xor"]
@@ -19,8 +20,33 @@ shader_parameter/samples = 35
 shader_parameter/lod = 2
 shader_parameter/tint_color = Color(0, 0, 0, 0.164706)
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o8bi2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a1xvq"]
+bg_color = Color(0.389287, 0.389287, 0.389286, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.489622, 0.489622, 0.489622, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o8bi2"]
+bg_color = Color(0.389287, 0.389287, 0.389286, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.489622, 0.489622, 0.489622, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
 [node name="Pause" type="Control"]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -59,6 +85,13 @@ texture_hover = ExtResource("4_05lnj")
 
 [node name="CheckButton" type="CheckButton" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("7_a1xvq")
+theme_override_font_sizes/font_size = 34
+theme_override_styles/focus = SubResource("StyleBoxEmpty_o8bi2")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_a1xvq")
+theme_override_styles/hover = SubResource("StyleBoxFlat_a1xvq")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_o8bi2")
+theme_override_styles/normal = SubResource("StyleBoxFlat_a1xvq")
 text = "Speedrun Mode"
 alignment = 1
 
