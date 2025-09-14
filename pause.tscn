@@ -57,6 +57,11 @@ texture_normal = ExtResource("6_u063c")
 texture_pressed = ExtResource("10_m0a22")
 texture_hover = ExtResource("4_05lnj")
 
+[node name="CheckButton" type="CheckButton" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Speedrun Mode"
+alignment = 1
+
 [node name="CenterContainer" type="CenterContainer" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
 

@@ -2,6 +2,8 @@ extends Control
 
 
 func _process(_delta: float) -> void:
+	if $CenterContainer/VBoxContainer/CheckButton.button_pressed:
+		$"../../Speedrun".show()
 	if Input.is_action_just_pressed("Esc"):
 		if $"../../body".get_child_count()>=2:
 			$CenterContainer/VBoxContainer/CenterContainer/Restart.show()

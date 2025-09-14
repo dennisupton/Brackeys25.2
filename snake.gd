@@ -30,6 +30,7 @@ var nextToungue = 250
 var nextBlink = 300
 func _physics_process(_delta: float) -> void:
 	if position == Vector2(-60,-6300) and $"../body".get_child_count()>3 and !freeze:
+		$"../CanvasLayer/Speedrun".stop()
 		freeze = true
 		$"../ParentAnim".play("End")
 		$"../Camera2D/Credits/AnimationPlayer".play("fade")
@@ -62,6 +63,8 @@ func _physics_process(_delta: float) -> void:
 			falling = false
 			$"../ParentAnim".animation = "End"
 			$"../ParentAnim".frame = 0
+
+
 	if (Time.get_ticks_msec()-lastMove > movementCooldownHold and movedLastFrame == true and supported) and !freeze:
 		if Input.is_action_pressed("ui_up") and canMoveUp():
 			positionChange.y -= 40
@@ -138,6 +141,8 @@ func _physics_process(_delta: float) -> void:
 			falling = false
 			$"../ParentAnim".animation = "End"
 			$"../ParentAnim".frame = 0
+			$"../CanvasLayer/Speedrun".startTime()
+
 	for i in $"../body".get_child_count():
 		$"../body".get_child(i).get_child(1).force_raycast_update()
 		if $"../body".get_child(i).get_child(1).is_colliding() and !$"../body".get_child(i).get_child(1).get_collider().is_in_group("cookie") and !$"../body".get_child(i).get_child(1).get_collider().is_in_group("Ledge") and !falling:
@@ -163,7 +168,8 @@ func _physics_process(_delta: float) -> void:
 			falling = false
 			$"../ParentAnim".animation = "End"
 			$"../ParentAnim".frame = 0
-			
+			$"../CanvasLayer/Speedrun".startTime()
+
 	if !supported:
 		#position += Vector2(0,10)
 		position = lerp(position,position + Vector2(0,40),0.3)
