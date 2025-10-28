@@ -74,11 +74,11 @@ func CheckMusic():
 
 func setMusicToList(list):
 	if oldList != list:
-		$SimpleDrums.stream_paused = !list[0]
-		$Drums.stream_paused = !list[1]
-		$Bass.stream_paused = !list[2]
-		$CounterMelody.stream_paused = !list[3]
-		$Chords.stream_paused = !list[4]
-		$Melody.stream_paused = !list[5]
-		$Violin.stream_paused = !list[6]
+		$SimpleDrums.playing = list[0]
+		$Drums.playing = list[1]
+		$Bass.playing = list[2]
+		$CounterMelody.playing = list[3]
+		$Chords.playing = list[4]
+		$Melody.playing = list[5]
+		$Violin.playing = list[6]
 	oldList = list
